@@ -31,6 +31,21 @@ class Bimbo{
 }
 
 class Project extends Bimbo{
+    get comments() {
+        return this._comments;
+    }
+
+    set comments(value) {
+        this._comments = value;
+    }
+
+    get ratings() {
+        return this._ratings;
+    }
+
+    set ratings(value) {
+        this._ratings = value;
+    }
     get title() {
         return this._title;
     }
@@ -95,7 +110,7 @@ class Project extends Bimbo{
         this._goals = value;
     }
 
-    constructor(id,title,start,end,brief_desc,long_desc,logo,manager,goals) {
+    constructor(id,title,start,end,brief_desc,long_desc,logo,manager,goals,comments,ratings) {
         super(id);
         this._title = title;
         this._start = start;
@@ -105,12 +120,14 @@ class Project extends Bimbo{
         this._logo = logo;
         this._manager = manager;
         this._goals = goals;
+        this._comments = comments;
+        this._ratings = ratings;
     }
-    
+
     calsDuration(){
         let days = (this._end.getTime()-this._start.getTime())/(1000*3600*24);
         let hours = days%1*24;
-        return "Tage: "+Math.round(days) + " Stunden: "+ Math.round(hours);
+        return "Days: "+Math.round(days) + " Hours: "+ Math.round(hours);
     }
 
 }
