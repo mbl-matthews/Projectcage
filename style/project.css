@@ -1,0 +1,90 @@
+@font-face {
+  font-family: coolvetica_o;
+  src: url(../fonts/coolvetica.ttf);
+}
+
+#supercontainer {
+	display:flex;
+	
+}
+
+
+#menu ul {
+	list-style: none;
+	padding-left: 0px;
+}
+
+#menu {
+	flex: 0 0 200px;
+	background-color: black;
+	border-style: solid;
+	border-right: 3px solid #00bfff;
+	margin:-3px; /*ganz links an rand zioehen?? leine ahnung wo die 3px herkommen*/
+}
+
+#menu li {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+a {
+	text-decoration: none;
+	color: white;
+}
+
+#menu li:hover {
+	background-color: #00bfff;
+}
+
+#artikel footer{
+	margin-top: 10px;
+	background-color: #1B1C1D;
+	text-align: left;
+}
+
+#topcontainer{
+	padding: 10px;
+	position: sticky;
+	top: 0px;
+	display: flex;
+	flex-wrap: wrap;
+	background-color: #1B1C1D;
+	color: #2191ff;
+}
+
+
+
+#topcontainer h1{
+	font-size: 2em;
+	margin: 5px;
+	font-family: coolvetica_o;
+	letter-spacing: 0.15em;
+}
+#topcontainer h2{
+	margin: 10px;
+}
+
+#topcontainer div{
+	margin: 5px;
+	flex-grow: 1;
+}
+
+#topcontainer #breaker {
+	flex-basis: 100%;
+	height: 0;
+}
+
+#topcontainer p{
+	margin-top: -8px;
+	margin-bottom: 0px;
+}
+
+
+
+#ratings textarea{
+	background-color: transparent;
+}
+
+#ratings textarea:focus{
+	background-color: white;
+}

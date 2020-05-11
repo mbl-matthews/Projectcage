@@ -1,0 +1,53 @@
+article header {
+	background-color: #4da6ff;
+		font-size: 1.5em;
+}
+
+article footer {
+	background-color: #4da6ff;
+	padding: 0px;
+}
+
+article p {
+	padding: 5px;
+	background-color: #cce6ff;
+}
+
+article {
+	padding: 5px;
+	border-style: solid;
+	border-width: 3px;
+	margin-bottom: 5px;
+	margin-top: 5px;
+}
+
+.filterbtn {
+	box-sizing: content-box;
+	background-color: #0066cc;
+	border-radius: 20px;;
+	padding: 7px;
+	cursor: pointer;
+	color: white;
+	font-size: 2em;
+	font-weight: bold;
+	border-style: solid;
+	border-width: 2px;
+	border-color: black;
+}
+
+li {
+	list-style: none;
+}
+
+
+.show {
+	display: none;
+}
+
+.filter {
+	margin-bottom: 10px;
+}
+
+.filterbtn:hover + .show {
+	display: block;
+}

@@ -1,0 +1,36 @@
+#supercontainer input,textarea{
+	background-color: transparent;
+	color: #2191ff;;
+}
+.image-upload input
+{
+    display: none;
+}
+
+.image-upload img
+{
+    width: 100px;
+    cursor: pointer;
+}
+
+textarea {
+	width:100%;
+}
+
+#supercontainer ol input,textarea{
+	color:black;
+}
+
+#titel {
+	font-size: 2em;
+	margin: 5px;
+	font-family: coolvetica_o;
+	letter-spacing: 0.15em;
+	margin-bottom: 25px;
+}
+
+#autor {
+	margin: 5px;
+	font-size: 1.5em;
+	margin-bottom: 30px;
+}

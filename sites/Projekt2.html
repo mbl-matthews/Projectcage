@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+	<title>Projectcage</title>
+    <meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="keywords" content="Projekt, Codingforce, Projketportal"> <!-- Für schlechte Suchengines die das noch nutzen -->
+	<meta name="author" content="Codingforce">
+	<meta name="description" content="Mit der Bierpipeline möchte man in Zukunft schnellstmöglich 80.000 Metalheads mit Bier versorgen.">
+	<link rel="stylesheet" href="../style/all.css">
+	<link rel="stylesheet" href="../style/project.css">
+  </head>
+  
+  <body>
+    <header id="ph" class="customBG">
+		<picture class="himg">
+			<source media="(min-width: 1920px)" srcset="../images/1920.png">
+			<source media="(min-width: 1280px)" srcset="../images/1280.png">
+			<source media="(min-width: 640px)" srcset="../images/640.png">
+			<img src="../images/320.png" alt="Default">
+		</picture>	
+		
+		<section class="login">
+			<form action="EMPFAENGER.html" id="login_form" method="post"></form>
+			<input type="text" id="uname" name="uname" form="login_form" placeholder="Benutzername">
+			<input type="password" id="pw" name="pw" form="login_form" placeholder="Passwort">
+			<input type="submit" form="login_form" value="Einloggen">
+			<span>kein Konto? <a href="registrieren.html">Registrieren</a></span>
+		</section>
+    </header>
+	
+	<nav class="navbar">
+		<a href="index.html">
+			<img src="../images/home.svg">
+		</a>
+		<a href="Projekte.html">Projekte</span></a>
+		<a href="Neues_Projekt.html">Neues Projekt</a>
+	</nav>	
+	<div id="supercontainer">
+		<div id="menu">
+			<ul>
+				<a href="#projectinfo"><li>Projektinfo</li></a>
+				<a href="#shortdesc"><li>Kurzbeschreibung</li></a>
+				<a href="#longdesc"><li>Details</li></a>
+				<a href="#milestones"><li>Projektziele</li></a>
+				<a href="#ratings"><li>Bewertung</li></a>
+			</ul>
+		</div>
+		<div id="main">
+			<article id="artikel">
+				<header id="topcontainer">
+					<picture>
+						<img src="../images/Project2_pimg.png" alt="Projectlogo" width="250px" height="250px">
+					</picture>
+					<h1>Weserlieder Open Air 2021</h1>
+					<div></div>
+					<h2>Andreas Sch&ouml;eberg</h2>
+					<div id="breaker"></div>
+					<p>Laufzeit: 01.01.1970 bis 19.01.2038</p>
+				</header>			
+					<div id="shortdesc">
+						<h3>Kurzbeschreibung</h3>
+						<p>Das Weserlieder Open Air findet seit &uuml;ber 10 Jahren j&auml;hrlich an der Weserpromenade in Minden statt.</p>
+					</div>
+					
+					<div id="longdesc">
+						<h3>Details</h3>
+						<p>
+							Die Veranstalter des Festivals haben aus einer privaten Initative heraus das legend&auml;re Musikfestival in Minden an der Weser gegr&uuml;ndet.
+				Man m&ouml;chte lokalen und Regionalen K&uuml;nstlern eine Plattform bieten zu spielen und ihre Musik zu pr&auml;sentieren.
+				Neben lokalen und regionalen Acts sind auch immer wieder &Uuml;berregionale K&uuml;nstler anwesend, um auch einer breiten Masse von Besucher zu gefallen.
+				Das Weserlieder Open Air nimmt keine Eintritt und ist deshalb auf F&ouml;rderung und Spende von Vereinen, Unternehmen und Personen angewiesen.
+				Mittlerweile ist das Weserlieder Open Air zu einer festen Gr&ouml;sse im Mindener Eventkalender geworden und kann sich an der Unterst&uuml;tzung vieler Personen aus dem Umkreis erfreuen.
+				Das soll nat&uuml;rlich auch 2021 wieder so sein!
+						</p>
+					</div>
+					
+					<div id="milestones">
+						<h3>Projektziele</h3>
+						<ol>
+							<li>B&uuml;hne mieten</li>
+							<li>Bands buchen</li>
+							<li>Aufbau</li>
+						</ol>
+					</div>
+					<div id="ratings">
+						<h3>Bewertung</h3>
+						<form action="EMPFAENGER.html" id="ratingform" method="post">
+							<h4>Kommentar</h4>
+							<textarea form="ratingform" name="comment" rows="5" cols="50" placeholder="Kommentar"></textarea></br>
+							<h4>Bewertung</h4>
+							<input form="ratingform" type="radio" name="rating" value="1">1<br>
+							<input form="ratingform" type="radio" name="rating" value="2">2<br>
+							<input form="ratingform" type="radio" name="rating" value="3">3<br>
+							<input form="ratingform" type="radio" name="rating" value="4">4<br>
+							<input form="ratingform" type="radio" name="rating" value="5">5<br>
+							<input form="ratingform" type="submit" value="Bewertung abschicken">
+						</form>	
+					</div>
+				<footer>
+					<br><!--Platzhalter -->
+				</footer>
+			</article>
+		</div>
+	</div>
+	<footer>
+        <nav> 
+			<a href="Impressum.html">Impressum</a> |
+			<a href="Datenschutzerklaerung.html">Datenschutzerkl&auml;rung</a> |
+			<a href="Haftungsausschluss.html">Haftungsausschluss</a> 
+
+			<a href="#ph">
+				<span class="backToTop">
+					Zur Spitze
+				</span>
+			</a>
+
+			-- copyright codingforce&copy; 2020 | Kontakt: codingforce@imperium.de
+		</nav>	  
+    </footer>		
+  </body>
+</html>

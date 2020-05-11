@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+	<title>Projectcage</title>
+    <meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="keywords" content="Projekt, Codingforce, Projketportal, Startseite"> <!-- Für schlechte Suchengines die das noch nutzen -->
+	<meta name="author" content="Codingforce">
+	<meta name="description" content="Portal zur Bereitstellung von Informationen über verschiedene Projekte.">
+	<link rel="stylesheet" href="../style/all.css">
+	<link rel="stylesheet" href="../style/index.css">
+  </head>
+
+  <body>
+    <header id="ph">
+		<picture class="himg">
+			<source media="(min-width: 1920px)" srcset="../images/1920.png">
+			<source media="(min-width: 1280px)" srcset="../images/1280.png">
+			<source media="(min-width: 640px)" srcset="../images/640.png">
+			<img src="../images/320.png" alt="Default">
+		</picture>	
+		
+		<section class="login">
+			<form action="EMPFAENGER.html" id="login_form" method="post"></form>
+			<input type="text" id="uname" name="uname" form="login_form" placeholder="Benutzername">
+			<input type="password" id="pw" name="pw" form="login_form" placeholder="Passwort">
+			<input type="submit" form="login_form" value="Einloggen"><br>
+			<span>kein Konto? <a href="registrieren.html">Registrieren</a></span>
+		</section>
+    </header>
+	
+	<nav class="navbar">
+		<a href="index.html">
+			<img src="../images/home.svg">
+		</a>
+		<a href="Projekte.html">Projekte</span></a>
+		<a href="Neues_Projekt.html">Neues Projekt</a>
+	</nav>	
+	
+	<div id="main">
+		<section >
+			<h1>Herzlich Willkommen bei Projketportal!</h1>
+			<p id="welcome">
+				<span id="zeile1">Wir sind Projketportal wir bieten tolle M&ouml;glichkeiten Projekte zu publizieren</span>
+				<span id="zeile2">Sie k&oumlnnen ein Benutzerkonto erstellen und ihre eigenen Projekte auf der Seite darstellen</span>
+			</p>	
+		</section>
+		
+		<section>
+			<h1>
+				Beschreibung der Seite 
+			</h1>
+			<p>Hier steht echt ein heftiger Text der halt echt voll die Beschreibung der Seite ist <br>
+				Der Text ist so krass der hat einfach ne zweite Zeile <br>
+				Und soger einfache ne dritte Zeile die l&auml;nger; ist als die zweite Zeile <br>
+				Das ist schon echt ne heftige Beschreibung<br>
+				Die h&ouml;rt halt einfach garnicht auf<br>
+				So krass ist die Beschreibung dieser Seite halte einfach 
+			</p>
+			
+		</section>
+		
+		<section >
+			<div id="midcontainer">
+			
+				<video width="700" height="400" controls>
+					<source src="../video/projectcage.mp4" type="video/mp4">
+					Video vom Browser nicht unterst&uuml;zt
+				</video>
+			
+				<div>
+					<h3>
+						Liste der neusten Projekte
+					</h3>
+					<ul>
+						<li><a href="Projekt1.html">Bierpipeline</a></li>
+						<li><a href="Projekt2.html">Weserlieder Open Air</a></li>
+						<li><a href="Projekt1.html">Bierpipeline</a></li>
+						<li><a href="Projekt2.html">Weserlieder Open Air</a></li>
+					</ul>
+				</div>	
+			</div>
+		</section>
+	</div>
+
+	
+	<footer>
+        <nav> 
+			<a href="Impressum.html">Impressum</a> |
+			<a href="Datenschutzerklaerung.html">Datenschutzerkl&auml;rung</a> |
+			<a href="Haftungsausschluss.html">Haftungsausschluss</a> 
+
+			<a href="#ph">
+				<span class="backToTop">
+					Zur Spitze
+				</span>
+			</a>
+
+			-- copyright codingforce&copy; 2020 | Kontakt: codingforce@imperium.de
+		</nav>	  
+    </footer>	
+  </body>
+</html>

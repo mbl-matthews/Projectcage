@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<title>Projectcage</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="keywords" content="Projekt, Codingforce, Projectcage, Registration"> <!-- Für schlechte Suchengines die das noch nutzen -->
+		<meta name="author" content="Block, Hitzemann">
+		<meta name="description" content="Bei der Projectcage Website registrieren.">
+		<link rel="stylesheet" href="../style/all.css">
+	</head>
+  <body>
+    <header id="ph">
+		<picture class="himg">
+			<source media="(min-width: 1920px)" srcset="../images/1920.png">
+			<source media="(min-width: 1280px)" srcset="../images/1280.png">
+			<source media="(min-width: 640px)" srcset="../images/640.png">
+			<img src="../images/320.png" alt="Default">
+		</picture>	
+		
+		<section class="login">
+			<form action="EMPFAENGER.html" id="login_form" method="post"></form>
+			<input type="text" id="uname" name="uname" form="login_form" placeholder="Benutzername">
+			<input type="password" id="pw" name="pw" form="login_form" placeholder="Passwort">
+			<input type="submit" form="login_form" value="Einloggen">
+			<span>kein Konto? <a href="registrieren.html">Registrieren</a></span>
+		</section>
+    </header>
+	<nav class="navbar">
+		<a href="index.html">
+			<img src="../images/home.svg">
+		</a>
+		<a href="Projekte.html">Projekte</span></a>
+		<a href="Neues_Projekt.html">Neues Projekt</a>
+	</nav>
+	
+	<div id="main">
+		<section>
+			<br>
+			<form action="EMPFAENGER.html" id="register_form" method="post"></form> 
+			<table >
+				<tr>
+					<td>Name</td>
+					<td>Vorname</td>
+				</tr>
+				<tr>
+					<td><input type="text" name="name" form="register_form"></td>
+					<td><input type="text" name="vorname" form="register_form"></td>
+				</tr>
+				<tr>
+					<td>Benutzername</td>
+				</tr>
+				<tr>
+					<td><input type="text" name="benutzername" form="register_form"></td>
+				</tr>
+				<tr>
+					<td>E-Mail</td>
+				</tr>
+				<tr>
+					<td><input type="email" name="mail" form="register_form"></td>
+				</tr>
+				<tr>
+					<td>Passwort</td>
+					<td>Passwort wiederholen</td>
+				</tr>
+				<tr>
+					<td><input type="password" name="vorname" form="register_form"></td>
+					<td><input type="password" name="vorname" form="register_form"></td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<input type="checkbox" name="agb" form="register_form">
+						<label for="agb">Ich habe die AGB und Nutzungsbedingungen gelesen und stimme diesen zu!</label>
+					</td>
+				</tr>
+				<tr>
+					<td><input type="submit" form="register_form" value="Registrieren"></td>
+				</tr>
+			</table>
+
+		</section>
+	</div>
+	<footer>
+        <nav> 
+			<a href="Impressum.html">Impressum</a> |
+			<a href="Datenschutzerklaerung.html">Datenschutzerkl&auml;rung</a> |
+			<a href="Haftungsausschluss.html">Haftungsausschluss</a> 
+
+			<a href="#ph">
+				<span class="backToTop">
+					Zur Spitze
+				</span>
+			</a>
+
+			-- copyright codingforce&copy; 2020 | Kontakt: codingforce@imperium.de
+		</nav>	  
+    </footer>	
+  </body>
+</html>

@@ -1,0 +1,103 @@
+@font-face {
+  font-family: bahnschrift_o;
+  src: url(../fonts/bahnschrift.ttf);
+}
+
+html {
+    max-width: 100%;
+    overflow-x: hidden;
+	/*height: 100%; /*test*/
+}
+
+body,#supercontainer,#main,#artikel {
+	width:100%;
+}
+
+body {
+	background-color: #99ccff;
+	margin: 0px;
+	margin-right: 0px;
+	padding-right: 0px;
+	font-family: bahnschrift_o;
+}
+
+#main {
+	margin: 10px;
+}
+
+#ph {
+	background-color: #8bbae8;
+}
+
+.navbar {
+	background-color: black;
+	border-top: 3px solid #00bfff;
+	font-size: 1.5em;
+	padding: 10px;
+}
+
+.navbar a {
+	padding: 12.5px;
+	color: white;
+}
+
+.navbar a:hover {
+	background-color: #00bfff;
+}
+
+.navbar a:link {
+	text-decoration: none;
+}
+
+.navbar a:hover {
+	text-decoration: none;
+}
+
+footer {
+	background-color: black;
+	color: white;
+	text-align: center;
+	padding: 10px;
+}
+
+footer a {
+	color: white;
+}
+
+.backToTop {
+	position: fixed;
+	background-color: #0066cc;
+	bottom: 10px;
+	right: 10px;
+	border-radius: 30px;
+	padding: 10px;
+	cursor: pointer;
+	color: white;
+}
+.backToTop a:link {
+	color: white;
+	text-decoration: none;
+}
+
+.backToTop a:visited {
+	color: white;
+	text-decoration: none;
+}
+
+/* Dont forget to ask about this! */
+.login {
+	/*display: grid;
+	grid-template-columns: 1fc 1fc 1fc 1fc; 
+	grid-gap: 2%;*/
+	position: absolute;
+	background-color: #0066cc;
+	top: 20px;
+	right: 20px;
+	width: 20%;
+	padding: 5px;
+	text-align: right;
+	border-style: solid;
+	border-width: 3px;
+}
+
+
