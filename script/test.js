@@ -20,44 +20,24 @@ class Bimbo{
         this._id = value;
     }
 
-    get name() {
-        return this._name;
-    }
-
-    set name(value) {
-        this._name = value;
-    }
-
-    get comments() {
-        return this._comments;
-    }
-
-    set comments(value) {
-        this._comments = value;
-    }
-
-    get ratings() {
-        return this._ratings;
-    }
-
-    set ratings(value) {
-        this._ratings = value;
-    }
-
-    constructor(id,name) {
+    constructor(id) {
         if (this.constructor === Bimbo) {
             // Error Type 1. Abstract class can not be constructed.
             throw new TypeError("Can not construct abstract class.");
         }
-        this._comments=undefined;
-        this._ratings=undefined;
         this._id = id;
-        this._name = name;
     }
 
 }
 
 class Project extends Bimbo{
+    get title() {
+        return this._title;
+    }
+
+    set title(value) {
+        this._title = value;
+    }
 
     get start() {
         return this._start;
@@ -115,8 +95,9 @@ class Project extends Bimbo{
         this._goals = value;
     }
 
-    constructor(id,name,start,end,brief_desc,long_desc,logo,manager,goals) {
-        super(id,name);
+    constructor(id,title,start,end,brief_desc,long_desc,logo,manager,goals) {
+        super(id);
+        this._title = title;
         this._start = start;
         this._end = end;
         this._brief_desc = brief_desc;
@@ -125,15 +106,16 @@ class Project extends Bimbo{
         this._manager = manager;
         this._goals = goals;
     }
-
-    //Gesamtdauer in Tagen
+    
     calsDuration(){
-        return (this._end.getTime()-this._start.getTime())/(1000*3600*24)
+        let days = (this._end.getTime()-this._start.getTime())/(1000*3600*24);
+        let hours = days%1*24;
+        return "Tage: "+Math.round(days) + " Stunden: "+ Math.round(hours);
     }
 
 }
 
 
-let bar = new Project(1,"faking",new Date(2020,5,10),new Date(2020,5,20));
+let bar = new Project(1,"faking",new Date(2020,5,10),new Date(2020,5,26,10));
 console.log(bar);
 
