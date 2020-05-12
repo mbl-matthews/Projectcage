@@ -220,8 +220,11 @@ class Comments {
     }
 
 }
-
+/*
 let bar = new Project(1,"faking",new Date(2020,5,10),new Date(2020,5,26,10));
 let user = new User(1,"Frank",null,"123",new Date("1980"));
-console.log(bar);
+
+let myJSON = JSON.stringify(bar);
+generateObject(myJSON);*/
+//console.log(myJSON);
 
