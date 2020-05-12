@@ -1,5 +1,5 @@
 
-class JsonKonverter{
+class Util{
 
     constructor() {
         this._object = undefined;
@@ -36,6 +36,36 @@ class JsonKonverter{
         }
 
         return this._object;
+    }
+
+    sortProject_manager(projectlist){
+        function compare(a,b){
+            const ma = a.manager.toUpperCase();
+            const mb = b.manager.toUpperCase();
+
+            let comparison = 0;
+            if (ma > mb) {
+                comparison = 1;
+            } else if (ma < mb) {
+                comparison = -1;
+            }
+            return comparison;
+        }
+        projectlist.sort(compare);
+    }
+
+    sortProject_startDate(projectlist){
+        function compare(a,b){
+            return a._start - b._start;
+        }
+        projectlist.sort(compare);
+    }
+
+    sortProject_duration(projectlist){
+        function compare(a,b){
+            return -1*(a.calcDuration() < b.calcDuration());
+        }
+        projectlist.sort(compare);
     }
 
 }
