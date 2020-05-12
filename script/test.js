@@ -179,7 +179,47 @@ class User extends Bimbo{
     }
 }
 
+class Comments {
+    get id() {
+        return this._id;
+    }
 
+    set id(value) {
+        this._id = value;
+    }
+
+    get comment() {
+        return this._comment;
+    }
+
+    set comment(value) {
+        this._comment = value;
+    }
+
+    get rating() {
+        return this._rating;
+    }
+
+    set rating(value) {
+        this._rating = value;
+    }
+
+    get user() {
+        return this._user;
+    }
+
+    set user(value) {
+        this._user = value;
+    }
+
+    constructor(id,comment,rating,user) {
+        this._id = id;
+        this._comment = comment;
+        this._rating = rating;
+        this._user = user;
+    }
+
+}
 
 let bar = new Project(1,"faking",new Date(2020,5,10),new Date(2020,5,26,10));
 let user = new User(1,"Frank",null,"123",new Date("1980"));
