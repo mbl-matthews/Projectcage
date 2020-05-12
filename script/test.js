@@ -50,7 +50,15 @@ class Bimbo{
         this._id = value;
     }
 
-    constructor(id,name,brief_desc,long_desc,goals) {
+    get picture() {
+        return this._picture;
+    }
+
+    set picture(value) {
+        this._picture = value;
+    }
+
+    constructor(id,name,brief_desc,long_desc,goals,picture) {
         if (this.constructor === Bimbo) {
             // Error Type 1. Abstract class can not be constructed.
             throw new TypeError("Can not construct abstract class.");
@@ -60,6 +68,7 @@ class Bimbo{
         this._brief_desc = brief_desc;
         this._long_desc = long_desc;
         this._goals = goals;
+        this._picture = picture;
     }
 
 }
@@ -97,14 +106,6 @@ class Project extends Bimbo{
         this._end = value;
     }
 
-    get logo() {
-        return this._logo;
-    }
-
-    set logo(value) {
-        this._logo = value;
-    }
-
     get manager() {
         return this._manager;
     }
@@ -115,10 +116,9 @@ class Project extends Bimbo{
 
 
     constructor(id,title,start,end,logo,manager,goals,comments,ratings,brief_desc,long_desc) {
-        super(id,title,brief_desc,long_desc,goals);
+        super(id,title,brief_desc,long_desc,goals,logo);
         this._start = start;
         this._end = end;
-        this._logo = logo;
         this._manager = manager;
         this._comments = comments;
         this._ratings = ratings;
@@ -157,20 +157,11 @@ class User extends Bimbo{
         this._gebDate = value;
     }
 
-    get picture() {
-        return this._picture;
-    }
-
-    set picture(value) {
-        this._picture = value;
-    }
-
     constructor(id,username,email,password,gebDate,picture,brief_desc,long_desc,goals) {
-        super(id,username,brief_desc,long_desc,goals);
+        super(id,username,brief_desc,long_desc,goals,picture);
         this._email = email;
         this._password = password;
         this._gebDate = gebDate;
-        this._picture = picture;
     }
 
     calcAge(){

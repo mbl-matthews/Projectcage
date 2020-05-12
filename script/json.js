@@ -28,7 +28,7 @@ class JsonKonverter{
 
         if (jobj.cType === 1){
             console.log("JAWWOLLLLLL JAAAA ICH BIN EIN FUCKING PROJEKT");
-            this._object = new Project(jobj._id,jobj._name,jobj._start,jobj._end,jobj._logo,jobj._manager,jobj._goals,jobj._comments,jobj._ratings,jobj._brief_desc,jobj._long_desc)
+            this._object = new Project(jobj._id,jobj._name,jobj._start,jobj._end,jobj._picture,jobj._manager,jobj._goals,jobj._comments,jobj._ratings,jobj._brief_desc,jobj._long_desc)
         }else if (jobj.cType === 2){
             this._object = new User(jobj._id,jobj._name,jobj._email,jobj._password,jobj._gebDate,jobj._picture,jobj._brief_desc,jobj._long_desc,jobj._goals)
         }else{
