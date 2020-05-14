@@ -2,6 +2,7 @@ const cacheName = 'v1';
 
 const cacheAssets = [
   'index.html',
+  'sw_cache_pages.js',
   './style/index.css',
   './style/all.css',
   './style/create_project.css',
@@ -21,9 +22,17 @@ const cacheAssets = [
   './images/1280.png',
   './images/1920.png',
   './images/home.svg',
+  './images/placeholder.png',
+  './images/Project1_pimg.png',
+  './images/Project2_pimg.png',
   './fonts/bahnschrift.ttf',
   './fonts/coolvetica.ttf',
-  //scripte.....
+  './script/language.js',
+  './script/main.js',
+  './script/objects.js',
+  './script/storage.js',
+  './script/sw_start.js',
+  './script/util.js'
 ];
 
 

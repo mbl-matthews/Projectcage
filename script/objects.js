@@ -1,4 +1,4 @@
-class Bimbo{
+class AbstractBase{
     get goals() {
         return this._goals;
     }
@@ -46,7 +46,7 @@ class Bimbo{
     }
 
     constructor(id,name,brief_desc,long_desc,goals,picture) {
-        if (this.constructor === Bimbo) {
+        if (this.constructor === AbstractBase) {
             // Error Type 1. Abstract class can not be constructed.
             throw new TypeError("Can not construct abstract class.");
         }
@@ -60,7 +60,7 @@ class Bimbo{
 
 }
 
-class Project extends Bimbo{
+class Project extends AbstractBase{
     get comments() {
         return this._comments;
     }
@@ -121,7 +121,7 @@ class Project extends Bimbo{
 
 }
 
-class User extends Bimbo{
+class User extends AbstractBase{
     get email() {
         return this._email;
     }
