@@ -54,3 +54,7 @@ sortProject_duration(list)
 console.log("sorted list");
 console.log(list[0].calcDuration()+" - "+list[1].calcDuration()+" - "+list[2].calcDuration()+" - "+list[3].calcDuration());
 */
+
+
+
+console.log("Objekte im locale Storage:\n",allStorage());
