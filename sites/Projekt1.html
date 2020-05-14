@@ -4,11 +4,13 @@
 	<title>Projectcage</title>
     <meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="keywords" content="Projekt, Codingforce, Projketportal"> <!-- Für schlechte Suchengines die das noch nutzen -->
+	<meta name="keywords" content="Projekt, Codingforce, Projketportal"> <!-- Fï¿½r schlechte Suchengines die das noch nutzen -->
 	<meta name="author" content="Codingforce">
-	<meta name="description" content="Mit der Bierpipeline möchte man in Zukunft schnellstmöglich 80.000 Metalheads mit Bier versorgen.">
+	<meta name="description" content="Mit der Bierpipeline mï¿½chte man in Zukunft schnellstmï¿½glich 80.000 Metalheads mit Bier versorgen.">
 	<link rel="stylesheet" href="../style/all.css">
 	<link rel="stylesheet" href="../style/project.css">
+	<script type="text/javascript" src="../script/objects.js"></script>
+	<script type="text/javascript" src="../script/storage.js"></script>
   </head>
   
   <body>
@@ -30,7 +32,7 @@
     </header>
 	
 	<nav class="navbar">
-		<a href="index.html">
+		<a href="../index.html">
 			<img src="../images/home.svg">
 		</a>
 		<a href="Projekte.html">Projekte</span></a>
@@ -83,15 +85,15 @@
 					</div>
 					<div id="ratings">
 						<h3>Bewertung</h3>
-						<form action="EMPFAENGER.html" id="ratingform" method="post">
+						<form action="javascript:void(0);" id="ratingform" onsubmit="storeComment()" >
 							<h4>Kommentar</h4>
-							<textarea form="ratingform" name="comment" rows="5" cols="50" placeholder="Kommentar"></textarea></br>
+							<textarea form="ratingform" name="comment" id="comment" rows="5" cols="50" placeholder="Kommentar"></textarea></br>
 							<h4>Bewertung</h4>
-							<input form="ratingform" type="radio" name="rating" value="1">1<br>
-							<input form="ratingform" type="radio" name="rating" value="2">2<br>
-							<input form="ratingform" type="radio" name="rating" value="3">3<br>
-							<input form="ratingform" type="radio" name="rating" value="4">4<br>
-							<input form="ratingform" type="radio" name="rating" value="5">5<br>
+							<input form="ratingform" type="radio" name="rating" id="r1" value="1">1<br>
+							<input form="ratingform" type="radio" name="rating" id="r2" value="2">2<br>
+							<input form="ratingform" type="radio" name="rating" id="r3" value="3">3<br>
+							<input form="ratingform" type="radio" name="rating" id="r4" value="4">4<br>
+							<input form="ratingform" type="radio" name="rating" id="r5" value="5">5<br>
 							<input form="ratingform" type="submit" value="Bewertung abschicken">
 						</form>	
 					</div>

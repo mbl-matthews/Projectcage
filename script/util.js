@@ -1,71 +1,49 @@
 
-class Util{
 
-    constructor() {
-        this._object = undefined;
-        this._jsonString = undefined;
-    }
+function sortProject_manager(projectlist) {
+    function compare(a, b) {
+        const ma = a.manager.toUpperCase();
+        const mb = b.manager.toUpperCase();
 
-    generateJson(object){
-        this._jsonString = JSON.stringify(object);
-        let lastIndex = this._jsonString.lastIndexOf("}");
-        this._jsonString = this._jsonString.substring(0,lastIndex)
-        if(object instanceof Project){
-            this._jsonString += ",\"cType\":1}";
-        }else if(object instanceof User) {
-            this._jsonString += ",\"cType\":2}";
-        }else if(object instanceof Comments) {
-            this._jsonString += ",\"cType\":3}";
-        }else{
-            throw new TypeError("Unknown Type of Object");
+        let comparison = 0;
+        if (ma > mb) {
+            comparison = 1;
+        } else if (ma < mb) {
+            comparison = -1;
         }
-        console.log("jstring generiert: "+this._jsonString);
-        return this._jsonString;
+        return comparison;
     }
 
-    generateObject(jsonString){
-        let jobj = JSON.parse(jsonString);
+    projectlist.sort(compare);
+}
 
-        if (jobj.cType === 1){
-            console.log("JAWWOLLLLLL JAAAA ICH BIN EIN FUCKING PROJEKT");
-            this._object = new Project(jobj._id,jobj._name,jobj._start,jobj._end,jobj._picture,jobj._manager,jobj._goals,jobj._comments,jobj._ratings,jobj._brief_desc,jobj._long_desc)
-        }else if (jobj.cType === 2){
-            this._object = new User(jobj._id,jobj._name,jobj._email,jobj._password,jobj._gebDate,jobj._picture,jobj._brief_desc,jobj._long_desc,jobj._goals)
-        }else{
-            this._object = new Comments(jobj._id,jobj._comment,jobj._rating,jobj._user)
-        }
-
-        return this._object;
+function sortProject_startDate(projectlist) {
+    function compare(a, b) {
+        return a._start - b._start;
     }
 
-    sortProject_manager(projectlist){
-        function compare(a,b){
-            const ma = a.manager.toUpperCase();
-            const mb = b.manager.toUpperCase();
+    projectlist.sort(compare);
+}
 
-            let comparison = 0;
-            if (ma > mb) {
-                comparison = 1;
-            } else if (ma < mb) {
-                comparison = -1;
-            }
-            return comparison;
-        }
-        projectlist.sort(compare);
+function sortProject_duration(projectlist) {
+    function compare(a, b) {
+        return -1 * (a.calcDuration() < b.calcDuration());
     }
 
-    sortProject_startDate(projectlist){
-        function compare(a,b){
-            return a._start - b._start;
-        }
-        projectlist.sort(compare);
-    }
+    projectlist.sort(compare);
+}
 
-    sortProject_duration(projectlist){
-        function compare(a,b){
-            return -1*(a.calcDuration() < b.calcDuration());
-        }
-        projectlist.sort(compare);
-    }
 
+function getLanguage() {
+    let language = window.navigator.language;
+    return language;
+}
+
+
+function welcome() {
+    let fenster1 = window.open("", "welcome", "width=500,height=250,left=600,top=400");
+    fenster1.document.write("<h1>Wilkommen auf Projketportal</h1><h2 id='lang'></h2>");
+    let lang = fenster1.document.getElementById("lang");
+    lang.innerHTML += "Language: " + getLanguage();
+    fenster1.setTimeout("close()", 5000);
 }

@@ -200,3 +200,33 @@ class Comments {
     }
 
 }
+
+function generateJson(object) {
+    let jsonString = JSON.stringify(object);
+    let lastIndex = jsonString.lastIndexOf("}");
+    jsonString = jsonString.substring(0, lastIndex)
+    if (object instanceof Project) {
+        jsonString += ",\"cType\":1}";
+    } else if (object instanceof User) {
+        jsonString += ",\"cType\":2}";
+    } else if (object instanceof Comments) {
+        jsonString += ",\"cType\":3}";
+    } else {
+        throw new TypeError("Unknown Type of Object");
+    }
+    return jsonString;
+}
+
+function generateObject(jsonString) {
+    let jobj = JSON.parse(jsonString);
+
+    if (jobj.cType === 1) {
+        jobj = new Project(jobj._id, jobj._name, jobj._start, jobj._end, jobj._picture, jobj._manager, jobj._goals, jobj._comments, jobj._ratings, jobj._brief_desc, jobj._long_desc)
+    } else if (jobj.cType === 2) {
+        jobj = new User(jobj._id, jobj._name, jobj._email, jobj._password, jobj._gebDate, jobj._picture, jobj._brief_desc, jobj._long_desc, jobj._goals)
+    } else {
+        jobj = new Comments(jobj._id, jobj._comment, jobj._rating, jobj._user)
+    }
+
+    return jobj;
+}

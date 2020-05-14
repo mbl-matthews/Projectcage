@@ -7,6 +7,8 @@
 		<meta name="author" content="Block, Hitzemann">
 		<meta name="description" content="Bei der Projectcage Website registrieren.">
 		<link rel="stylesheet" href="../style/all.css">
+		<script type="text/javascript" src="../script/objects.js"></script>
+		<script type="text/javascript" src="../script/storage.js"></script>
 	</head>
   <body>
     <header id="ph">
@@ -26,7 +28,7 @@
 		</section>
     </header>
 	<nav class="navbar">
-		<a href="index.html">
+		<a href="../index.html">
 			<img src="../images/home.svg">
 		</a>
 		<a href="Projekte.html">Projekte</span></a>
@@ -36,46 +38,34 @@
 	<div id="main">
 		<section>
 			<br>
-			<form action="EMPFAENGER.html" id="register_form" method="post"></form> 
-			<table >
-				<tr>
-					<td>Name</td>
-					<td>Vorname</td>
-				</tr>
-				<tr>
-					<td><input type="text" name="name" form="register_form"></td>
-					<td><input type="text" name="vorname" form="register_form"></td>
-				</tr>
-				<tr>
-					<td>Benutzername</td>
-				</tr>
-				<tr>
-					<td><input type="text" name="benutzername" form="register_form"></td>
-				</tr>
-				<tr>
-					<td>E-Mail</td>
-				</tr>
-				<tr>
-					<td><input type="email" name="mail" form="register_form"></td>
-				</tr>
-				<tr>
-					<td>Passwort</td>
-					<td>Passwort wiederholen</td>
-				</tr>
-				<tr>
-					<td><input type="password" name="vorname" form="register_form"></td>
-					<td><input type="password" name="vorname" form="register_form"></td>
-				</tr>
-				<tr>
-					<td colspan="2">
-						<input type="checkbox" name="agb" form="register_form">
-						<label for="agb">Ich habe die AGB und Nutzungsbedingungen gelesen und stimme diesen zu!</label>
-					</td>
-				</tr>
-				<tr>
-					<td><input type="submit" form="register_form" value="Registrieren"></td>
-				</tr>
-			</table>
+			<form action="javascript:void(0);" id="register_form" onsubmit="storeUser()">
+			
+			<label for="username">Benutzername</label><br>
+			<input type="text" id="username" name="uname"><br>
+			<label for="pw1">Passwort</label><br>
+			<input type="password" id="pw1" name="pw1"><br>
+			<label for="pw2">Passwort wiederholen</label><br>
+			<input type="text" id="pw2" name="pw2"><br>
+			<label for="email">E-Mail</label><br>
+			<input type="text" id="email" name="email"><br>
+			<label for="gebdate">Geburtsdatum</label><br>
+			<input type="date" id="gebdate" name="gebdate"><br>
+			<label for="brief_desc">Kurzbeschreibung</label><br>
+			<textarea id="brief_desc" name="brief_desc"></textarea><br>
+			<label for="long_desc">Langbeschreibung</label><br>
+			<textarea id="long_desc" name="long_desc"></textarea><br>
+			<label for="goals">Ziele</label><br>
+			<input type="text" id="goals" name="goals"><br>
+			<input type="text" id="goals1" name="goals"><br>
+			<input type="text" id="goals2" name="goals"><br>
+			<label for="picture">Profilbild</label><br>
+			<input type="file" id="picture" name="picture"accept="image/*"/><br>
+			<input type="checkbox" id="agb" name="agb" form="register_form">
+			<label for="agb">Ich habe die AGB und Nutzungsbedingungen gelesen und stimme diesen zu!</label><br>
+
+			<input type="submit" value="Registrieren">
+			</form>
+		
 
 		</section>
 	</div>
@@ -93,6 +83,7 @@
 
 			-- copyright codingforce&copy; 2020 | Kontakt: codingforce@imperium.de
 		</nav>	  
-    </footer>	
+    </footer>
+		
   </body>
 </html>
