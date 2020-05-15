@@ -29,7 +29,8 @@ console.log("Generated Object from JSON:\n",myOBJ);
 
 
 
-
+console.log("\n\n");
+console.log("Sortieren der Projekte:");
 //test manager sorting
 console.log("manager - unsorted list");
 console.log(list[0]._manager+"\n"+list[1]._manager+"\n"+list[2]._manager+"\n"+list[3]._manager);
@@ -37,7 +38,7 @@ console.log(list[0]._manager+"\n"+list[1]._manager+"\n"+list[2]._manager+"\n"+li
 sortProject_manager(list)
 console.log("manager - sorted list");
 console.log(list[0]._manager+"\n"+list[1]._manager+"\n"+list[2]._manager+"\n"+list[3]._manager);
-
+console.log("\n");
 
 //test startDate sorting
 console.log("startDate - unsorted list");
@@ -46,7 +47,7 @@ console.log(list[0]._start+"\n"+list[1]._start+"\n"+list[2]._start+"\n"+list[3].
 sortProject_startDate(list)
 console.log("startDate - sorted list");
 console.log(list[0]._start+"\n"+list[1]._start+"\n"+list[2]._start+"\n"+list[3]._start);
-
+console.log("\n");
 
 
 // test duration sorting
@@ -59,5 +60,12 @@ console.log(list[0].calcDuration()+"\n"+list[1].calcDuration()+"\n"+list[2].calc
 
 
 
+console.log("\n\n");
+console.log("Objekte im locale Storage:");
+console.log("Projekte: ",allStorage()[1]);
+console.log("User: ",allStorage()[2]);
+console.log("Kommentare: ",allStorage()[0]);
+console.log("\n\n");
 
-console.log("Objekte im locale Storage:\n",allStorage());
+console.log("Brwosersprache: ",getLanguage());
+console.log("\n");
