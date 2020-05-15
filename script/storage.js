@@ -21,11 +21,11 @@ function storeUser() {
         alert("Bitte AGBs akzeptieren!");
     } else {
 
-        let user = new User(id, username, email, password1, gebdate, picture, brief_desc, long_desc, {
+        let user = new User(id, username, email, password1, gebdate, picture, brief_desc, long_desc, [
             goals,
             goals1,
             goals2
-        });
+        ]);
         localStorage.setItem(id, generateJson(user));
         alert("Erfolgrech");
     }
@@ -49,11 +49,11 @@ function storeProject() {
     goals2 = document.querySelector("#goals2").value;
 
 
-    let project = new Project(id, title, slz, elz, picture, autor, {
+    let project = new Project(id, title, slz, elz, picture, autor, [
         goals,
         goals1,
         goals2
-    }, undefined, undefined, shortdesc, longdesc);
+    ], undefined, undefined, shortdesc, longdesc);
     localStorage.setItem(id, generateJson(project));
     alert("Erfolgrech");
 }
@@ -93,7 +93,6 @@ function get_maxID(){
     for (let i=0 ; i<3; i++) {
         for (let x of allStorage()[i]){
             if (x._id > max) {
-                console.log(x);
                 max = x._id;
             }
         }
@@ -121,3 +120,13 @@ function allStorage() {
     return [c, p, u];
 }
 
+function getLastProjects(number){
+    let arr = [],i=0;
+    let projects=allStorage()[1];
+    projects.sort((a,b) => (a._id-b._id)*-1);
+    while( i<number ){
+        arr.push(projects[i]);
+        i++;
+    }
+    return arr;
+}

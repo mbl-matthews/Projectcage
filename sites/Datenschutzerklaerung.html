@@ -17,12 +17,13 @@
 			<img src="../images/320.png" alt="Default">
 		</picture>	
 		
-		<section class="login">
-			<form action="EMPFAENGER.html" id="login_form" method="post"></form>
+		<section id="login">
+			<form action="javascript:void(0);" id="login_form" onsubmit="login()">
 			<input type="text" id="uname" name="uname" form="login_form" placeholder="Benutzername">
 			<input type="password" id="pw" name="pw" form="login_form" placeholder="Passwort">
 			<input type="submit" form="login_form" value="Einloggen">
 			<span>kein Konto? <a href="registrieren.html">Registrieren</a></span>
+			</form>
 		</section>
     </header>
 	<nav class="navbar">

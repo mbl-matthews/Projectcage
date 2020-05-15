@@ -27,12 +27,13 @@
 			<img src="images/320.png" alt="Default">
 		</picture>	
 		
-		<section class="login">
-			<form action="sites/EMPFAENGER.html" id="login_form" method="post"></form>
+		<section id="login">
+			<form action="javascript:void(0);" id="login_form" onsubmit="login()">
 			<input type="text" id="uname" name="uname" form="login_form" placeholder="Benutzername">
 			<input type="password" id="pw" name="pw" form="login_form" placeholder="Passwort">
 			<input type="submit" form="login_form" value="Einloggen">
 			<span>kein Konto? <a href="sites/registrieren.html">Registrieren</a></span>
+			</form>
 		</section>
     </header>
 	
@@ -67,7 +68,7 @@
 			
 		</section>
 		
-		<section >
+		<section>
 			<div id="midcontainer">
 			
 				<video width="700" height="400" controls>
@@ -79,7 +80,7 @@
 					<h3>
 						Liste der neusten Projekte
 					</h3>
-					<ul>
+					<ul id="projectList">
 						<li><a href="sites/Projekt1.html">Bierpipeline</a></li>
 						<li><a href="sites/Projekt2.html">Weserlieder Open Air</a></li>
 						<li><a href="sites/Projekt1.html">Bierpipeline</a></li>
@@ -88,7 +89,7 @@
 				</div>	
 			</div>
 		</section>
-	</div>
+
 
 	
 	<footer>

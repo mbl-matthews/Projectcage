@@ -84,7 +84,7 @@ footer a {
 }
 
 /* Dont forget to ask about this! */
-.login {
+#login_form{
 	display: grid;
 	grid-template-columns: 1fc 1fc 1fc 1fc; 
 	grid-gap: 2%;
@@ -99,4 +99,16 @@ footer a {
 	border-width: 3px;
 }
 
-
+.logout{
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	width: 20%;
+	padding: 10px;
+	background-color: #0066cc;
+	font-size: 2em;
+	text-align: center;
+	border-style: solid;
+	border-width: 3px;
+	cursor: pointer;
+}
