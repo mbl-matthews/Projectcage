@@ -1,6 +1,6 @@
 function storeUser() {
     let username, email, password1, password2, agb, gebdate, brief_desc, long_desc, goals, goals1, goals2, picture;
-    let id = get_maxID(allStorage()[2]);
+    let id = get_maxID();
 
     username = document.querySelector("#username").value
     email = document.querySelector("#email").value;
@@ -26,7 +26,7 @@ function storeUser() {
             goals1,
             goals2
         });
-        localStorage.setItem(username, generateJson(user));
+        localStorage.setItem(id, generateJson(user));
         alert("Erfolgrech");
     }
 
@@ -35,7 +35,7 @@ function storeUser() {
 function storeProject() {
 
     let picture, title, autor, slz, elz, shortdesc, longdesc, goals, goals1, goals2;
-    let id = get_maxID(allStorage()[1]);
+    let id = get_maxID();
 
     title = document.querySelector("#titel").value;
     picture = document.querySelector("#file-input").value;
@@ -54,13 +54,13 @@ function storeProject() {
         goals1,
         goals2
     }, undefined, undefined, shortdesc, longdesc);
-    localStorage.setItem(title, generateJson(project));
+    localStorage.setItem(id, generateJson(project));
     alert("Erfolgrech");
 }
 
 function storeComment() {
     let comment, r1, r2, r3, r4, r5, rating;
-    let id = get_maxID(allStorage()[0]);
+    let id = get_maxID();
 
     r1 = document.querySelector("#r1").checked;
     r2 = document.querySelector("#r2").checked;
@@ -80,18 +80,22 @@ function storeComment() {
     } else if (r5) {
         rating = 5;
     } else {
-        console.log("weird error while processing ratings");
+       rating =0; console.log("kein rating abgegeben");
     }
 
     let comm = new Comments(id, comment, rating, undefined)
-    localStorage.setItem(comment, generateJson(comm));
+    localStorage.setItem(id, generateJson(comm));
 }
 
-function get_maxID(obj){
+function get_maxID(){
     let max=0;
-    for (let x of obj) {
-        if (x._id > max) {
-            max = x._id;
+
+    for (let i=0 ; i<3; i++) {
+        for (let x of allStorage()[i]){
+            if (x._id > max) {
+                console.log(x);
+                max = x._id;
+            }
         }
     }
     return max+1;
