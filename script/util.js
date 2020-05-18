@@ -1,5 +1,3 @@
-
-
 function sortProject_manager(projectlist) {
     function compare(a, b) {
         const ma = a.manager.toUpperCase();
@@ -48,29 +46,67 @@ function welcome() {
     fenster1.setTimeout("close()", 5000);
 }
 
+function loginBox(){
+    localStorage.setItem("currentUserID","0");
+    let login = document.getElementById("login");
+    let new_login = login.cloneNode(false);
+    login.parentNode.replaceChild(new_login, login);
+    let form = document.createElement("form");
+    let name = document.createElement("input");
+    let pw = name.cloneNode();
+    let sub = document.createElement("input");
+    let span = document.createElement("span");
+    let a = document.createElement("a");
+
+    form.setAttribute("action",'javascript:void(0);');
+    form.setAttribute("id",'login_form')
+    form.setAttribute("onsubmit","login();");
+
+    name.setAttribute("type","text");
+    name.setAttribute("id","uname");
+    name.setAttribute("from","login_form");
+    name.setAttribute("placeholder","Benutzername");
+
+    pw.setAttribute("type","password");
+    pw.setAttribute("id","pw");
+    pw.setAttribute("placeholder","Passwort");
+
+    sub.setAttribute("type","submit");
+    sub.setAttribute("form","login_form");
+    sub.setAttribute("value","Einloggen");
+
+    a.setAttribute("href","sites/registrieren.html");
+    span.textContent="kein Konto?";
+    a.textContent="Registrieren";
+    span.appendChild(a);
+    form.append(name,pw,sub,span)
+    new_login.appendChild(form);
+}
+
+function logoutBox(){
+    let login = document.getElementById("login");
+    let new_login = login.cloneNode(false);
+    login.parentNode.replaceChild(new_login, login);
+    let btn = document.createElement("button");
+    btn.textContent="Ausloggen";
+    btn.setAttribute("class","logout");
+    btn.addEventListener("click", e => loginBox());
+    new_login.appendChild(btn);
+}
+
 
 function login(){
     let users=allStorage()[2];
     let user = document.querySelector("#uname").value;
     let pw = document.querySelector("#pw").value;
 
-    for(x of users){
+    for(let x of users){
         if(x._name==user){
             if(x._password==pw){
-                let login = document.getElementById("login");
-
-                let new_login = login.cloneNode(false);
-                login.parentNode.replaceChild(new_login, login);
-                console.log(login);
-                let btn = document.createElement("button");
-                btn.textContent="Ausloggen";
-                btn.setAttribute("class","logout");
-                btn.addEventListener("click", function(){
-                    new_login.parentNode.replaceChild(login,new_login)
-                });
-                new_login.appendChild(btn);
+                localStorage.setItem("currentUserID",x._id);
+                logoutBox();
             }else{
-                alert("Passwort falsch")
+                //alert("Passwort falsch")
             }
         }
     }
@@ -89,9 +125,7 @@ registrieren typw password IN JAVASCRIPT
 
 
 function index_projectList(number){
-    let list = document.getElementById("projectList");
-    let clone = list.cloneNode(false);
-    list.parentNode.replaceChild(clone, list);
+    let  list = document.getElementById("projectList");
     let projects=getLastProjects(number);
     for(let i=0; i<number; i++){
         if(projects[i]==undefined){
@@ -101,10 +135,15 @@ function index_projectList(number){
         let a=document.createElement("a");
         li.appendChild(a);
         a.textContent=projects[i]._name;
-        //href ändern
-        a.setAttribute("href","sites/Projekt1.html");
-        clone.appendChild(li);
+
+       // a.setAttribute("href","sites/Projekt.html");
+        a.addEventListener('click', (e) => {e.preventDefault(); setProjectID(projects[i]._id) , window.location.href="sites/Projekt.html"});
+        list.appendChild(li);
     }
+}
+
+function setProjectID(id){
+    localStorage.setItem("ProjectID",id);
 }
 
 function showAllProjects(){
@@ -133,7 +172,7 @@ function showAllProjects(){
         span.textContent="Projektzeitraum: " + projects[i]._start + " - " + projects[i]._end;
         a.textContent=" Details"
         //href ändern
-        a.setAttribute("href","sites/Projekt1.html");
+        a.setAttribute("href","sites/Projekt.html");
         section.appendChild(article);
     }
 }
@@ -141,7 +180,7 @@ function showAllProjects(){
 function showProject(id){
     let project = generateObject(localStorage.getItem(id));
     if(!project){
-        alert("showProject kaputt")
+        alert("showProject kaputt");
         return -1;
     }
 
@@ -162,12 +201,18 @@ function showProject(id){
     let new_milestones = milestones.cloneNode(false);
     milestones.parentNode.replaceChild(new_milestones, milestones);
 
-    for(x of project._goals){
-        console.log(x)
+    for(let x of project._goals){
         let li = document.createElement("li");
         li.textContent=x;
         new_milestones.appendChild(li);
     }
 
+    let comms = document.getElementById("comments").getElementsByTagName("ol")[0];
+    if(project._comments == null)return ;
+    for(let x of project._comments){
+        let li = document.createElement("li");
+        li.textContent=x;
+        comms.appendChild(li);
+    }
 }
 

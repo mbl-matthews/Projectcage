@@ -11,14 +11,14 @@ function showPosition(position) {
 
 
 let bar = new Project(1,"Projket1",new Date(2020,5,3),new Date(2020,5,26,10),undefined,"Arnold");
-let bar1 = new Project(1,"Projket2",new Date(2020,1,25),new Date(2020,4,26,10),undefined,"Gerald");
-let bar2 = new Project(1,"Projket3",new Date(2020,3,8),new Date(2020,8,26,10),undefined,"Bernd");
-let bar3 = new Project(1,"Projket4",new Date(2020,5,15),new Date(2020,5,26,10),undefined,"Heidi");
+let bar1 = new Project(2,"Projket2",new Date(2020,1,25),new Date(2020,4,26,10),undefined,"Gerald");
+let bar2 = new Project(3,"Projket3",new Date(2020,3,8),new Date(2020,8,26,10),undefined,"Bernd");
+let bar3 = new Project(4,"Projket4",new Date(2020,5,15),new Date(2020,5,26,10),undefined,"Heidi");
 
 let list = [bar,bar1,bar2,bar3];
 
 
-let user = new User(1,"Frank","test@mail.de","123",new Date(1980,3,20));
+let user = new User(5,"Frank","test@mail.de","123",new Date(1980,3,20));
 
 myJSON = generateJson(user);
 console.log("Generated JSON:\n"+myJSON)
