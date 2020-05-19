@@ -102,12 +102,12 @@ class Project extends AbstractBase{
     }
 
 
-    constructor(id,title,start,end,logo,manager,goals,ratings,brief_desc,long_desc,comments) {
+    constructor(id,title,start,end,logo,manager,goals,ratings,brief_desc,long_desc) {
         super(id,title,brief_desc,long_desc,goals,logo);
         this._start = start;
         this._end = end;
         this._manager = manager;
-        this._comments = comments;
+        this._comments = [];
         this._ratings = ratings;
     }
 

@@ -6,11 +6,10 @@ aufgehört unten in storeComment
 
 IN JS UND DOM index fußleite rip???
 fragen JS UND DOM user erstellen doppelt pw username abfrgagen...?
+autor in die übersicht 
+alte bilder löschen
 
-
-project. comments constructor löschen in js
-
-html sachen fixen
+-html sachen fixen
 neues projekt links aus textarea holen
 all.css
 css kommentare
