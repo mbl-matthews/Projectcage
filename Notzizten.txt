@@ -1,16 +1,9 @@
-﻿IN JavaScript die Objekte die erstellt wurden in den local storage packen
-in JS projkete und User "vollständig machen"
-
+﻿
 Kommentare und Rating getrennt?
-aufgehört unten in storeComment
-
 
 dict auch in JS updaten
 
-IN JS UND DOM index fußleite rip???
 fragen JS UND DOM user erstellen doppelt pw username abfrgagen...?
-autor in die übersicht 
-alte bilder löschen
 
 
  comments raiting reihenfolde überprüfen JS
@@ -18,4 +11,5 @@ alte bilder löschen
 
 JS und DOM user erstellen formatieren
 
-für kommentar schreiben eingeloggt sein
+
+projektseite navigation für kommentare

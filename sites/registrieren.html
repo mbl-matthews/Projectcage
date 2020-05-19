@@ -74,30 +74,6 @@
 
 		</section>
 
-
-
-		<script>
-			let lang = 'en';
-			let tmpl = document.getElementsByClassName('translate');//.textContent;
-			let translation  = document.getElementsByClassName('translation');
-
-			console.log(translation)
-			for(let i=0;i<tmpl.length;i++){
-				let test=tmpl[i].textContent;
-				console.log(test)
-				let html = applyTemplate(test, lang);
-				console.log("aaa:    ",translation[i])
-				translation[i].textContent=html;
-			//	console.log("bbbb:    ",translation[i].textContent=html)
-			}
-
-		//	let html = applyTemplate(tmpl, lang);
-		//	console.log(html)
-		//	translation.textContent=html;
-
-
-		</script>
-
 	</div>
 	<footer>
         <nav> 
@@ -117,3 +93,5 @@
 		
   </body>
 </html>
+
+<script>translatePage();</script>

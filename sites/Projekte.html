@@ -8,6 +8,7 @@
 		<meta name="description" content="�bersicht aller bei Projectcage registrierten Projekte.">
 		<link rel="stylesheet" href="../style/all.css">
 		<link rel="stylesheet" href="../style/projects.css">
+		<script type="text/javascript" src="../script/language.js"></script>
 		<script type="text/javascript" src="../script/objects.js"></script>
 		<script type="text/javascript" src="../script/storage.js"></script>
 		<script type="text/javascript" src="../script/util.js"></script>
@@ -34,8 +35,10 @@
 		<a href="../index.html">
 			<img src="../images/home.svg">
 		</a>
-		<a href="Projekte.html">Projekte</span></a>
-		<a href="Neues_Projekt.html">Neues Projekt</a>
+		<div class="translate">{{Projekte}}</div>
+		<a href="Projekte.html" class="translation"></a>
+		<div class="translate"><div>{{Neues Projekt}}</div></div>
+		<a href="Neues_Projekt.html" class="translation"></a>
 	</nav>	
 	<div id="main">
 	
@@ -91,3 +94,5 @@
     </footer>		
   </body>
 </html>
+
+<script>translatePage();</script>

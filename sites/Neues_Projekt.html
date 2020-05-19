@@ -9,6 +9,7 @@
 	<link rel="stylesheet" href="../style/all.css">
 	<link rel="stylesheet" href="../style/project.css">
 	<link rel="stylesheet" href="../style/create_project.css">
+	  <script type="text/javascript" src="../script/language.js"></script>
 	<script type="text/javascript" src="../script/objects.js"></script>
 	<script type="text/javascript" src="../script/storage.js"></script>
   </head>
@@ -38,16 +39,22 @@
 		<a href="../index.html">
 			<img src="../images/home.svg">
 		</a>
-		<a href="Projekte.html">Projekte</span></a>
-		<a href="Neues_Projekt.html">Neues Projekt</a>
-	</nav>	
+		<div class="translate">{{Projekte}}</div>
+		<a href="Projekte.html" class="translation"></a>
+		<div class="translate">{{Neues Projekt}}</div>
+		<a href="Neues_Projekt.html" class="translation"></a>
+	</nav>
 	<div id="supercontainer">
 		<div id="menu">
 			<ul>
-				<a href="#projectinfo"><li>Projektinfo</li></a>
-				<a href="#shortdesc"><li>Kurzbeschreibung</li></a>
-				<a href="#longdesc"><li>Details</li></a>
-				<a href="#milestones"><li>Projektziele</li></a>
+				<div class="translate">{{Projektinfo}}</div>
+				<a href="#projectinfo"><li class="translation"></li></a>
+				<div class="translate">{{Kurzbeschreibung}}</div>
+				<a href="#shortdesc"><li class="translation"></li></a>
+				<div class="translate">{{Details}}</div>
+				<a href="#longdesc"><li class="translation"></li></a>
+				<div class="translate">{{Projektziele}}</div>
+				<a href="#milestones"><li class="translation"></li></a>
 			</ul>
 		</div>
 		<div id="main">
@@ -123,3 +130,5 @@
     </footer>		
   </body>
 </html>
+
+<script>translatePage();</script>

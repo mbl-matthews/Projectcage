@@ -7,6 +7,7 @@
 		<meta name="author" content="Block, Hitzemann">
 		<meta name="description" content="Datenschutzerkl&aumrung von Projectcage">
 		<link rel="stylesheet" href="../style/all.css">
+		<script type="text/javascript" src="../script/language.js"></script>
 	</head>
 	<body>
     <header id="ph">
@@ -30,9 +31,11 @@
 		<a href="../index.html">
 			<img src="../images/home.svg">
 		</a>
-		<a href="Projekte.html">Projekte</span></a>
-		<a href="Neues_Projekt.html">Neues Projekt</a>
-	</nav>	
+		<div class="translate">{{Projekte}}</div>
+		<a href="Projekte.html" class="translation"></a>
+		<div class="translate">{{Neues Projekt}}</div>
+		<a href="Neues_Projekt.html" class="translation"></a>
+	</nav>
 	<div id="main">
 		
 		<section>
@@ -106,3 +109,5 @@
     </footer>	
 	</body>
 </html>
+
+<script>translatePage();</script>

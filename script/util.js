@@ -32,12 +32,6 @@ function sortProject_duration(projectlist) {
 }
 
 
-function getLanguage() {
-    let language = window.navigator.language;
-    return language;
-}
-
-
 function welcome() {
     let fenster1 = window.open("", undefined, "width=500,height=250,left=600,top=400");
     fenster1.document.write("<h1>Wilkommen auf Projketportal</h1><h2 id='lang'></h2>");

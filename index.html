@@ -9,6 +9,7 @@
 	<meta name="description" content="Portal zur Bereitstellung von Informationen �ber verschiedene Projekte.">
 	<link rel="stylesheet" href="style/all.css">
 	<link rel="stylesheet" href="style/index.css">
+	<script type="text/javascript" src="script/language.js"></script>
 	<script type="text/javascript" src="script/util.js"></script>
 	<script type="text/javascript" src="script/storage.js"></script>
 	<script type="text/javascript" src="script/sw_start.js"></script>
@@ -31,15 +32,17 @@
 			<script>loginBox();</script>
 		</section>
     </header>
-	
+
 	<nav class="navbar">
 		<a href="index.html">
 			<img src="images/home.svg">
 		</a>
-		<a href="sites/Projekte.html" >Projekte</a>
-		<a href="sites/Neues_Projekt.html">Neues Projekt</a>
-	</nav>	
-	
+		<div class="translate">{{Projekte}}</div>
+		<a href="sites/Projekte.html" class="translation"></a>
+		<div class="translate">{{Neues Projekt}}</div>
+		<a href="sites/Neues_Projekt.html" class="translation"></a>
+	</nav>
+
 	<div id="main">
 		<section >
 			<h1>Herzlich Willkommen bei ProjectCage!</h1>
@@ -102,3 +105,5 @@
 
   </body>
 </html>
+
+<script>translatePage();</script>
