@@ -2,8 +2,8 @@
 
 function sortProject_manager(projectlist) {
     function compare(a, b) {
-        const ma = a.manager.toUpperCase();
-        const mb = b.manager.toUpperCase();
+        const ma = a._manager.toUpperCase();
+        const mb = b._manager.toUpperCase();
 
         let comparison = 0;
         if (ma > mb) {
