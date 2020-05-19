@@ -79,6 +79,25 @@ a {
 	margin-bottom: 0px;
 }
 
+#comments h4{
+	background: #369aff;
+	margin-block-start: 0px ;
+	margin-bottom: 0px;
+	padding: 0px;
+}
+
+#comments h5{
+	background: #69b4ff;
+	margin-block-start: 0px;
+	margin-bottom: 0px;
+}
+
+#comments p{
+	background: #7dbbfa;
+	margin-block-start: 0px;
+	margin-bottom: 20px;
+}
+
 
 
 #ratings textarea{

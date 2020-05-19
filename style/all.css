@@ -12,6 +12,15 @@ body,#supercontainer,#main,#artikel {
 	width:100%;
 }
 
+/*///////////test////////////////*/
+
+.translate {
+	display: none;
+}
+
+
+/*////////////////////////*/
+
 body {
 	background-color: #99ccff;
 	margin: 0px;
@@ -83,10 +92,8 @@ footer a {
 	text-decoration: none;
 }
 
-/* Dont forget to ask about this! */
 #login_form{
 	display: grid;
-	grid-template-columns: 1fc 1fc 1fc 1fc; 
 	grid-gap: 2%;
 	position: absolute;
 	background-color: #0066cc;

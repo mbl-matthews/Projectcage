@@ -54,7 +54,7 @@
 			<article id="artikel">
 				<header id="topcontainer">
 					<picture>
-						<img id="logo" src="../images/Project1_pimg.png" alt="Projectlogo" width="250px" height="250px">
+						<img id="logo" src="../images/placeholder.png" alt="Projectlogo" width="250px" height="250px">
 					</picture>
 					<h1>Titel</h1>
 					<div></div>
@@ -78,11 +78,10 @@
 					</div>
 					<div id="comments">
 						<h3>Kommentare</h3>
-						<ol></ol>
 					</div>
 					<div id="ratings">
 						<h3>Bewertung</h3>
-						<form action="javascript:void(0);" id="ratingform" onsubmit="storeComment()" >
+						<form action="javascript:void(0);" id="ratingform" onsubmit="storeComment();location.reload();" >
 							<h4>Kommentar</h4>
 							<textarea form="ratingform" name="comment" id="comment" rows="5" cols="50" placeholder="Kommentar"></textarea></br>
 							<h4>Bewertung</h4>

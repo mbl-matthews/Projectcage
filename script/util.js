@@ -169,10 +169,13 @@ function showAllProjects(){
 
         h2.textContent=projects[i]._name + " - " + projects[i]._manager;
         p.textContent=projects[i]._brief_desc;
-        span.textContent="Projektzeitraum: " + projects[i]._start + " - " + projects[i]._end;
+
+        let date = projects[i]._start.toISOString().substring(0, 10).split("-")
+        span.textContent="Projektzeitraum: " + date[2] + "." + date[1] + "." + date[0] ;
+
         a.textContent=" Details"
-        //href ändern
-        a.setAttribute("href","sites/Projekt.html");
+        a.setAttribute("href","Projekt.html");
+        a.setAttribute("onClick","localStorage.setItem('ProjectID',"+projects[i]._id+")");
         section.appendChild(article);
     }
 }
@@ -187,12 +190,15 @@ function showProject(id){
     let header = document.getElementById("topcontainer");
     let logo = document.getElementById("logo");
     let milestones = document.getElementById("milestones");
+    let startdate = project._start.toISOString().substring(0, 10).split("-");
+    let enddate = project._end.toISOString().substring(0, 10).split("-");
 
-  /* wie soll ein bild gehenb????
+  /*
     logo.setAttribute("src",project._picture)*/
     header.getElementsByTagName("h1")[0].textContent=project._name;
-    header.getElementsByTagName("h2")[0].textContent=project._manager;
-    header.getElementsByTagName("p")[0].textContent="Laufzeit: " + project._start + " bis " + project._end;
+    header.getElementsByTagName("h2")[0].textContent="Autor:" +project._manager;
+
+    header.getElementsByTagName("p")[0].textContent="Laufzeit: " + startdate[2] + "." + startdate[1] + "." + startdate[0]  + " bis " + enddate[2] + "." + enddate[1] + "." + enddate[0];
 
     document.getElementById("shortdesc").getElementsByTagName("p")[0].textContent=project._brief_desc;
     document.getElementById("longdesc").getElementsByTagName("p")[0].textContent=project._long_desc;
@@ -206,13 +212,26 @@ function showProject(id){
         li.textContent=x;
         new_milestones.appendChild(li);
     }
+    console.log(project)
 
-    let comms = document.getElementById("comments").getElementsByTagName("ol")[0];
+    //Kommentare
+    let comms = document.getElementById("comments")
     if(project._comments == null)return ;
-    for(let x of project._comments){
-        let li = document.createElement("li");
-        li.textContent=x;
-        comms.appendChild(li);
+    for(let id of project._comments){
+
+        let object = generateObject(localStorage.getItem(id));
+        let h4 = document.createElement("h4");
+        let stars = document.createElement("h5");
+        let text = document.createElement("p");
+        console.log(object)
+        console.log(generateObject(localStorage.getItem(object._user)))
+        h4.textContent=generateObject(localStorage.getItem(object._user))._name;
+        stars.textContent="Sterne: "+object._rating;
+        text.textContent=object._comment;
+
+        comms.appendChild(h4);
+        comms.appendChild(stars);
+        comms.appendChild(text);
     }
 }
 

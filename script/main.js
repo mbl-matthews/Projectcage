@@ -3,8 +3,11 @@ function showPosition(position) {
     console.log("Aktuelle Position ---  Latitude: " + position.coords.latitude +"  Longitude: " + position.coords.longitude);
 }
 
+//Objekte nur beim ersten laden in den Storage speichern
+if(localStorage.getItem("10")==undefined){
+    storeAllObjects();
+}
 
-storeAllObjects();
 
 //Objekte aus edem lokalen speicher zurückholeen
 let user = generateObject(localStorage.getItem("1"));
@@ -54,17 +57,17 @@ function storeAllObjects(){
     let user1 = new User(2,"Horst","test@mail.de","123",new Date(1980,3,20),undefined,"kurze Beschreibung","lange beschreibung",["Ziel1","Ziel2","Ziel3"]);
     let user2 = new User(3,"Odin","test@mail.de","123",new Date(1980,3,20),undefined,"kurze Beschreibung","lange beschreibung",["Ziel1","Ziel2","Ziel3"]);
 
-    let comment = new Comments(8,"toller Kommentartext",5,5);
-    let comment1 = new Comments(9,"Kommentartext",3,6);
-    let comment2 = new Comments(10,"2Sterne",2,7);
+    let comment = new Comments(8,"toller Kommentartext",5,1);
+    let comment1 = new Comments(9,"Kommentartext",3,2);
+    let comment2 = new Comments(10,"2Sterne",2,3);
 
-    let proj = new Project(4,"Projket1",new Date(2020,5,3),new Date(2020,5,26,10),undefined,"Arnold",["Ziel1","Ziel2","Ziel3"],[1,2],undefined,"kurze Beschreibung","lange beschreibung");
-    let proj2 = new Project(5,"Projket2",new Date(2020,1,25),new Date(2020,4,26,10),undefined,"Gerald",["Ziel1","Ziel2","Ziel3"],[3],undefined,"kurze Beschreibung","lange beschreibung");
-    let proj3 = new Project(6,"Projket3",new Date(2020,3,8),new Date(2020,8,26,10),undefined,"Bernd",["Ziel1","Ziel2","Ziel3"],undefined,undefined,"kurze Beschreibung","lange beschreibung");
-    let proj4 = new Project(7,"Projket4",new Date(2020,5,15),new Date(2020,5,26,10),undefined,"Heidi",["Ziel1","Ziel2","Ziel3"],undefined,undefined,"kurze Beschreibung","lange beschreibung");
+    let proj = new Project(4,"Projket1",new Date(2020,5,3),new Date(2020,5,26,10),undefined,"Arnold",["Ziel1","Ziel2","Ziel3"],[8,9],undefined,"kurze Beschreibung","lange beschreibung");
+    let proj2 = new Project(5,"Projket2",new Date(2020,1,25),new Date(2020,4,26,10),undefined,"Gerald",["Ziel1","Ziel2","Ziel3"],[10],undefined,"kurze Beschreibung","lange beschreibung");
+    let proj3 = new Project(6,"Projket3",new Date(2020,3,8),new Date(2020,8,26,10),undefined,"Bernd",["Ziel1","Ziel2","Ziel3"],[],undefined,"kurze Beschreibung","lange beschreibung");
+    let proj4 = new Project(7,"Projket4",new Date(2020,5,15),new Date(2020,5,26,10),undefined,"Heidi",["Ziel1","Ziel2","Ziel3"],[],undefined,"kurze Beschreibung","lange beschreibung");
     let list = [proj,proj2,proj3,proj4,comment,comment1,comment2,user,user1,user2];
 
-
+    console.log(proj4)
     for (let item of list) {
         localStorage.setItem(item._id, generateJson(item));
     }

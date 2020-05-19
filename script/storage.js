@@ -53,12 +53,18 @@ function storeProject() {
         goals,
         goals1,
         goals2
-    ], undefined, shortdesc, longdesc,[undefined,undefined]);
+    ], [],undefined, shortdesc, longdesc);
     localStorage.setItem(id, generateJson(project));
     alert("Erfolgrech");
 }
 
 function storeComment() {
+    let user=localStorage.getItem("currentUserID")
+    if(user==0){
+        alert("bitte einloggen");
+        return;
+    }
+
     let comment, r1, r2, r3, r4, r5, rating;
     let id = get_maxID();
 
@@ -80,10 +86,9 @@ function storeComment() {
     } else if (r5) {
         rating = 5;
     } else {
-       rating =undefined; console.log("kein rating abgegeben");
+       rating = "nicht bewertet"; console.log("kein rating abgegeben");
     }
 
-    let user = localStorage.getItem("currenUserID");
 
     let comm = new Comments(id, comment, rating, user);
     localStorage.setItem(id, generateJson(comm));
