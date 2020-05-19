@@ -1,7 +1,7 @@
 function sortProject_manager(projectlist) {
     function compare(a, b) {
-        const ma = a.manager.toUpperCase();
-        const mb = b.manager.toUpperCase();
+        const ma = a._manager.toUpperCase();
+        const mb = b._manager.toUpperCase();
 
         let comparison = 0;
         if (ma > mb) {
@@ -39,7 +39,7 @@ function getLanguage() {
 
 
 function welcome() {
-    let fenster1 = window.open("", "welcome", "width=500,height=250,left=600,top=400");
+    let fenster1 = window.open("", undefined, "width=500,height=250,left=600,top=400");
     fenster1.document.write("<h1>Wilkommen auf Projketportal</h1><h2 id='lang'></h2>");
     let lang = fenster1.document.getElementById("lang");
     lang.innerHTML += "Language: " + getLanguage();

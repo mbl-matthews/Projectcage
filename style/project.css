@@ -19,7 +19,7 @@
 	background-color: black;
 	border-style: solid;
 	border-right: 3px solid #00bfff;
-	margin:-3px; /*ganz links an rand zioehen?? leine ahnung wo die 3px herkommen*/
+	margin:-3px;
 }
 
 #menu li {

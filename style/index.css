@@ -26,7 +26,7 @@
 	justify-content: right;
 }
 
-/* Doppelt, weil reverse direction durch alternate nicht möglich ist*/
+
 @keyframes einblenden {
 	from {opacity: 0;}
 	to {opacity: 1;}
