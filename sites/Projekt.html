@@ -6,11 +6,12 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="keywords" content="Projekt, Codingforce, Projketportal">
 	<meta name="author" content="Codingforce">
-	<meta name="description" content="Mit der Bierpipeline moechte man in Zukunft schnellstmoeglich 80.000 Metalheads mit Bier versorgen.">
+	<meta name="description" content="Mit der Bierpipeline m�chte man in Zukunft schnellstm�glich 80.000 Metalheads mit Bier versorgen.">
 	<link rel="stylesheet" href="../style/all.css">
 	<link rel="stylesheet" href="../style/project.css">
-	<script type="text/javascript" src="../script/objects.js"></script>
-	<script type="text/javascript" src="../script/storage.js"></script>
+	  <script type="text/javascript" src="../script/objects.js"></script>
+	  <script type="text/javascript" src="../script/storage.js"></script>
+	  <script type="text/javascript" src="../script/util.js"></script>
   </head>
   
   <body>
@@ -22,12 +23,13 @@
 			<img src="../images/320.png" alt="Default">
 		</picture>	
 		
-		<section class="login">
-			<form action="EMPFAENGER.html" id="login_form" method="post"></form>
+		<section id="login">
+			<form action="javascript:void(0);" id="login_form" onsubmit="login()">
 			<input type="text" id="uname" name="uname" form="login_form" placeholder="Benutzername">
 			<input type="password" id="pw" name="pw" form="login_form" placeholder="Passwort">
 			<input type="submit" form="login_form" value="Einloggen">
 			<span>kein Konto? <a href="registrieren.html">Registrieren</a></span>
+			</form>
 		</section>
     </header>
 	
@@ -52,44 +54,37 @@
 			<article id="artikel">
 				<header id="topcontainer">
 					<picture>
-						<img src="../images/Project2_pimg.png" alt="Projectlogo" width="250px" height="250px">
+						<img id="logo" src="../images/Project1_pimg.png" alt="Projectlogo" width="250px" height="250px">
 					</picture>
-					<h1>Weserlieder Open Air 2021</h1>
+					<h1>Titel</h1>
 					<div></div>
-					<h2>Andreas Sch&ouml;eberg</h2>
+					<h2>Autor</h2>
 					<div id="breaker"></div>
-					<p>Laufzeit: 01.01.1970 bis 19.01.2038</p>
+					<p>Laufzeit:</p>
 				</header>			
 					<div id="shortdesc">
 						<h3>Kurzbeschreibung</h3>
-						<p>Das Weserlieder Open Air findet seit &uuml;ber 10 Jahren j&auml;hrlich an der Weserpromenade in Minden statt.</p>
+						<p></p>
 					</div>
 					
 					<div id="longdesc">
 						<h3>Details</h3>
-						<p>
-							Die Veranstalter des Festivals haben aus einer privaten Initative heraus das legend&auml;re Musikfestival in Minden an der Weser gegr&uuml;ndet.
-				Man m&ouml;chte lokalen und Regionalen K&uuml;nstlern eine Plattform bieten zu spielen und ihre Musik zu pr&auml;sentieren.
-				Neben lokalen und regionalen Acts sind auch immer wieder &Uuml;berregionale K&uuml;nstler anwesend, um auch einer breiten Masse von Besucher zu gefallen.
-				Das Weserlieder Open Air nimmt keine Eintritt und ist deshalb auf F&ouml;rderung und Spende von Vereinen, Unternehmen und Personen angewiesen.
-				Mittlerweile ist das Weserlieder Open Air zu einer festen Gr&ouml;sse im Mindener Eventkalender geworden und kann sich an der Unterst&uuml;tzung vieler Personen aus dem Umkreis erfreuen.
-				Das soll nat&uuml;rlich auch 2021 wieder so sein!
-						</p>
+						<p></p>
 					</div>
 					
 					<div id="milestones">
 						<h3>Projektziele</h3>
-						<ol>
-							<li>B&uuml;hne mieten</li>
-							<li>Bands buchen</li>
-							<li>Aufbau</li>
-						</ol>
+						<ol></ol>
+					</div>
+					<div id="comments">
+						<h3>Kommentare</h3>
+						<ol></ol>
 					</div>
 					<div id="ratings">
 						<h3>Bewertung</h3>
 						<form action="javascript:void(0);" id="ratingform" onsubmit="storeComment()" >
 							<h4>Kommentar</h4>
-							<textarea form="ratingform" id="comment" name="comment" rows="5" cols="50" placeholder="Kommentar"></textarea></br>
+							<textarea form="ratingform" name="comment" id="comment" rows="5" cols="50" placeholder="Kommentar"></textarea></br>
 							<h4>Bewertung</h4>
 							<input form="ratingform" type="radio" name="rating" id="r1" value="1">1<br>
 							<input form="ratingform" type="radio" name="rating" id="r2" value="2">2<br>
@@ -121,4 +116,5 @@
 		</nav>	  
     </footer>		
   </body>
+  <script>showProject(localStorage.getItem("ProjectID"))</script>
 </html>

@@ -61,6 +61,7 @@ class AbstractBase{
 }
 
 class Project extends AbstractBase{
+
     get comments() {
         return this._comments;
     }
@@ -115,8 +116,6 @@ class Project extends AbstractBase{
         let days = (this._end.getTime()-this._start.getTime())/(1000*3600*24);
 
         return days;
-        // let hours = days%1*24;
-        // return "Days: "+Math.round(days) + " Hours: "+ Math.round(hours);
     }
 
 }

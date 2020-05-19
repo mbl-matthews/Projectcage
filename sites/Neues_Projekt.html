@@ -3,7 +3,7 @@
   <head>
 	<title>Projectcage</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="keywords" content="Projekt, Codingforce, Projectcage"> <!-- F�r schlechte Suchengines die das noch nutzen -->
+	<meta name="keywords" content="Projekt, Codingforce, Projectcage">
 	<meta name="author" content="Block, Hitzemann">
 	<meta name="description" content="Erstellen eines neuen Projektes">
 	<link rel="stylesheet" href="../style/all.css">
@@ -22,13 +22,13 @@
 			<img src="../images/320.png" alt="Default">
 		</picture>	
 		
-		<section class="login">
+		<div class="login">
 			<form action="EMPFAENGER.html" id="login_form" method="post"></form>
 			<input type="text" id="uname" name="uname" form="login_form" placeholder="Benutzername">
 			<input type="password" id="pw" name="pw" form="login_form" placeholder="Passwort">
 			<input type="submit" form="login_form" value="Einloggen">
 			<span>kein Konto? <a href="registrieren.html">Registrieren</a></span>
-		</section>
+		</div>
     </header>
 	
 	<nav class="navbar">
@@ -49,7 +49,7 @@
 		</div>
 		<div id="main">
 			<article id="artikel">
-				<form action="javascript:void(0);" id="form123" onsubmit="storeProject()">
+				<form action="javascript:void(0);" id="form123" onsubmit="storeProject()" />
 				<header id="topcontainer">
 
 					<span class="image-upload">

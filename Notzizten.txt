@@ -4,15 +4,7 @@ in JS projkete und User "vollständig machen"
 Kommentare und Rating getrennt?
 aufgehört unten in storeComment
 
-dict auch in JS updaten
-abstract löschen
-
 IN JS UND DOM index fußleite rip???
 fragen JS UND DOM user erstellen doppelt pw username abfrgagen...?
 autor in die übersicht 
 alte bilder löschen
-
--html sachen fixen
-neues projekt links aus textarea holen
-all.css
-css kommentare

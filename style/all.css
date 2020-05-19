@@ -83,10 +83,9 @@ footer a {
 	text-decoration: none;
 }
 
-/* Dont forget to ask about this! */
+
 .login {
 	display: grid;
-	grid-template-columns: 1fc 1fc 1fc 1fc; 
 	grid-gap: 2%;
 	position: absolute;
 	background-color: #0066cc;
