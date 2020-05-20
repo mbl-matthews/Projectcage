@@ -123,14 +123,14 @@ function allStorage() {
     let keys = Object.keys(localStorage), i = keys.length;
 
     while (i--) {
-        temp = generateObject(localStorage.getItem(keys[i]));
-        if (temp instanceof Project) {
-            p.push(temp);
-        } else if (temp instanceof User) {
-            u.push(temp);
-        } else {
-            c.push(temp);
-        }
+            temp = generateObject(localStorage.getItem(keys[i]));
+            if (temp instanceof Project) {
+                p.push(temp);
+            } else if (temp instanceof User) {
+                u.push(temp);
+            } else if (temp instanceof Comments){
+                c.push(temp);
+            }
     }
     return [c, p, u];
 }

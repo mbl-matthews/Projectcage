@@ -6,6 +6,7 @@ class AbstractBase{
     set goals(value) {
         this._goals = value;
     }
+
     get name() {
         return this._name;
     }
@@ -29,6 +30,7 @@ class AbstractBase{
     set long_desc(value) {
         this._long_desc = value;
     }
+
     get id() {
         return this._id;
     }
@@ -45,7 +47,7 @@ class AbstractBase{
         this._picture = value;
     }
 
-    constructor(id,name,brief_desc,long_desc,goals,picture) {
+    constructor(id, name, brief_desc, long_desc, goals, picture) {
         if (this.constructor === AbstractBase) {
             // Error Type 1. Abstract class can not be constructed.
             throw new TypeError("Can not construct abstract class.");
@@ -60,7 +62,7 @@ class AbstractBase{
 
 }
 
-class Project extends AbstractBase{
+class Project extends AbstractBase {
 
     get comments() {
         return this._comments;
@@ -103,8 +105,8 @@ class Project extends AbstractBase{
     }
 
 
-    constructor(id,title,start,end,logo,manager,goals,comments,ratings,brief_desc,long_desc) {
-        super(id,title,brief_desc,long_desc,goals,logo);
+    constructor(id, title, start, end, logo, manager, goals, comments, ratings, brief_desc, long_desc) {
+        super(id, title, brief_desc, long_desc, goals, logo);
         this._start = start;
         this._end = end;
         this._manager = manager;
@@ -112,15 +114,15 @@ class Project extends AbstractBase{
         this._ratings = ratings;
     }
 
-    calcDuration(){
-        let days = (this._end.getTime()-this._start.getTime())/(1000*3600*24);
+    calcDuration() {
+        let days = (this._end.getTime() - this._start.getTime()) / (1000 * 3600 * 24);
 
         return days;
     }
 
 }
 
-class User extends AbstractBase{
+class User extends AbstractBase {
     get email() {
         return this._email;
     }
@@ -145,16 +147,16 @@ class User extends AbstractBase{
         this._gebDate = value;
     }
 
-    constructor(id,username,email,password,gebDate,picture,brief_desc,long_desc,goals) {
-        super(id,username,brief_desc,long_desc,goals,picture);
+    constructor(id, username, email, password, gebDate, picture, brief_desc, long_desc, goals) {
+        super(id, username, brief_desc, long_desc, goals, picture);
         this._email = email;
         this._password = password;
         this._gebDate = gebDate;
     }
 
-    calcAge(){
+    calcAge() {
         //floor - abrunden
-        return Math.floor((Date.now() - this._gebDate.getTime())/(1000*3600*24*360));
+        return Math.floor((Date.now() - this._gebDate.getTime()) / (1000 * 3600 * 24 * 360));
     }
 }
 
@@ -191,7 +193,7 @@ class Comments {
         this._user = value;
     }
 
-    constructor(id,comment,rating,user) {
+    constructor(id, comment, rating, user) {
         this._id = id;
         this._comment = comment;
         this._rating = rating;
@@ -218,7 +220,6 @@ function generateJson(object) {
 
 function generateObject(jsonString) {
     let jobj = JSON.parse(jsonString);
-
     if (jobj.cType === 1) {
         jobj = new Project(jobj._id, jobj._name, new Date(jobj._start), new Date(jobj._end), jobj._picture, jobj._manager, jobj._goals, jobj._comments, jobj._ratings, jobj._brief_desc, jobj._long_desc)
     } else if (jobj.cType === 2) {
