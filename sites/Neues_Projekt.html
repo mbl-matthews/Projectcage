@@ -9,7 +9,8 @@
 	<link rel="stylesheet" href="../style/all.css">
 	<link rel="stylesheet" href="../style/project.css">
 	<link rel="stylesheet" href="../style/create_project.css">
-	  <script type="text/javascript" src="../script/language.js"></script>
+	<script type="text/javascript" src="../script/util.js"></script>
+	<script type="text/javascript" src="../script/language.js"></script>
 	<script type="text/javascript" src="../script/objects.js"></script>
 	<script type="text/javascript" src="../script/storage.js"></script>
   </head>
@@ -25,7 +26,7 @@
 		
 
 		<div id="login">
-			<form action="javascript:void(0);" id="login_form" onsubmit="login()">
+			<form action="javascript:void(0);" id="login_form" onsubmit="login();">
 			<input type="text" id="uname" name="uname" form="login_form" placeholder="Benutzername">
 			<input type="password" id="pw" name="pw" form="login_form" placeholder="Passwort">
 			<input type="submit" form="login_form" value="Einloggen">
@@ -39,21 +40,21 @@
 		<a href="../index.html">
 			<img src="../images/home.svg">
 		</a>
-		<div class="translate">{{Projekte}}</div>
+		<div class="translate">{Projekte}</div>
 		<a href="Projekte.html" class="translation"></a>
-		<div class="translate">{{Neues Projekt}}</div>
+		<div class="translate">{Neues Projekt}</div>
 		<a href="Neues_Projekt.html" class="translation"></a>
 	</nav>
 	<div id="supercontainer">
 		<div id="menu">
 			<ul>
-				<div class="translate">{{Projektinfo}}</div>
+				<div class="translate">{Projektinfo}</div>
 				<a href="#projectinfo"><li class="translation"></li></a>
-				<div class="translate">{{Kurzbeschreibung}}</div>
+				<div class="translate">{Kurzbeschreibung}</div>
 				<a href="#shortdesc"><li class="translation"></li></a>
-				<div class="translate">{{Details}}</div>
+				<div class="translate">{Details}</div>
 				<a href="#longdesc"><li class="translation"></li></a>
-				<div class="translate">{{Projektziele}}</div>
+				<div class="translate">{Projektziele}</div>
 				<a href="#milestones"><li class="translation"></li></a>
 			</ul>
 		</div>
