@@ -76,7 +76,7 @@ const dict = {
         //index
         'Herzlich Willkommen bei ProjectCage!': 'Herzlich Willkommen bei ProjectCage!',
         'index_welcomePart1': 'Wir sind ProjectCage wir bieten tolle Möglichkeiten Projekte zu publizieren',
-        'index_welcomePart2': 'Sie k&ouml;nnen ein Benutzerkonto erstellen und ihre eigenen Projekte auf der Seite darstellen',
+        'index_welcomePart2': 'Sie können ein Benutzerkonto erstellen und ihre eigenen Projekte auf der Seite darstellen',
         'Beschreibung der Seite': 'Beschreibung der Seite',
         'Liste der neusten Projekte' : 'Liste der neusten Projekte',
         //login
