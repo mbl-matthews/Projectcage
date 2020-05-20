@@ -116,14 +116,16 @@ const dict = {
 }
 
 function getLanguage() {
-    return window.navigator.language;
+    let lang = window.navigator.language;
+    lang = lang.split("-");
+    return lang[0];
 }
 
 function translate(word) {
+    console.log("saddd  ",word)
     let lang = getLanguage()
-    const regex = /\{(\w+)+\}/g
-  //  console.log(word)
     word = word.replace(/[\{\}]/g, '').trim()
+    console.log("saddd2  ",word)
     return dict[lang][word];
 }
 
@@ -147,7 +149,9 @@ function translatePage() {
                 words[i].setAttribute("placeholder",translate(text))
             }
         }else{
+            console.log("sdfsdf  ",words[i].textContent)
             text = translate(words[i].textContent);
+            console.log(text)
             words[i].textContent = text;
         }
     }

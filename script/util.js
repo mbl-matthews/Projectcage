@@ -107,17 +107,6 @@ function login(){
 
 }
 
-/*
-
-
-registrieren typw password IN JAVASCRIPT
-
- */
-
-
-
-
-
 function index_projectList(number){
     let  list = document.getElementById("projectList");
     let projects=getLastProjects(number);
