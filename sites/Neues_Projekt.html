@@ -2,6 +2,7 @@
 <html lang="de">
   <head>
 	<title>Projectcage</title>
+	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="keywords" content="Projekt, Codingforce, Projectcage">
 	<meta name="author" content="Block, Hitzemann">
@@ -22,17 +23,12 @@
 			<source media="(min-width: 1280px)" srcset="../images/1280.png">
 			<source media="(min-width: 640px)" srcset="../images/640.png">
 			<img src="../images/320.png" alt="Default">
-		</picture>	
-		
+		</picture>
 
-		<div id="login">
-			<form action="javascript:void(0);" id="login_form" onsubmit="login();">
-			<input type="text" id="uname" name="uname" form="login_form" placeholder="Benutzername">
-			<input type="password" id="pw" name="pw" form="login_form" placeholder="Passwort">
-			<input type="submit" form="login_form" value="Einloggen">
-			<span>kein Konto? <a href="registrieren.html">Registrieren</a></span>
-			</form>
-		</div>
+
+		<section id="login">
+			<script>loginBox("");</script>
+		</section>
 
     </header>
 	
@@ -40,22 +36,16 @@
 		<a href="../index.html">
 			<img src="../images/home.svg">
 		</a>
-		<div class="translate">{Projekte}</div>
-		<a href="Projekte.html" class="translation"></a>
-		<div class="translate">{Neues Projekt}</div>
-		<a href="Neues_Projekt.html" class="translation"></a>
+		<a href="Projekte.html" class="translate">{Projekte}</a>
+		<a href="Neues_Projekt.html" class="translate">{Neues Projekt}</a>
 	</nav>
 	<div id="supercontainer">
 		<div id="menu">
 			<ul>
-				<div class="translate">{Projektinfo}</div>
-				<a href="#projectinfo"><li class="translation"></li></a>
-				<div class="translate">{Kurzbeschreibung}</div>
-				<a href="#shortdesc"><li class="translation"></li></a>
-				<div class="translate">{Details}</div>
-				<a href="#longdesc"><li class="translation"></li></a>
-				<div class="translate">{Projektziele}</div>
-				<a href="#milestones"><li class="translation"></li></a>
+				<a href="#projectinfo"><li class="translate">{Projektinfo}</li></a>
+				<a href="#shortdesc"><li class="translate">{Kurzbeschreibung}</li></a>
+				<a href="#longdesc"><li class="translate">{Details}</li></a>
+				<a href="#milestones"><li class="translate">{Projektziele}</li></a>
 			</ul>
 		</div>
 		<div id="main">
@@ -70,9 +60,9 @@
 
 						<input type="file" id="file-input" name="picture" form="form123" accept="image/*">
 					</span>
-					<input type="text" id="titel" name="titel" form="form123" placeholder="Titel">
+					<input class="translate" type="text" id="titel" name="titel" form="form123" placeholder="{Titel}">
 					<div></div>
-					<input type="text" id="autor" name="autor" form="form123" placeholder="Autor">
+					<input class="translate" type="text" id="autor" name="autor" form="form123" placeholder="{Autor}">
 					<div id="breaker"></div>
 					
 					<p>Laufzeit: 
@@ -81,31 +71,31 @@
 						<input type="date" id="elz" name="endlz" form="form123"></p>
 				</header>			
 					<div>
-						<h3>Kurzbeschreibung</h3>
-						<textarea id="shortdesc" name="shortdesc" form="form123" placeholder="Kurze Beschreibung" rows="4" cols="70"></textarea>
+						<h3 class="translate">Kurzbeschreibung</h3>
+						<textarea class="translate" id="shortdesc" name="shortdesc" form="form123" placeholder="{Kurzbeschreibung}" rows="4" cols="70"></textarea>
 					</div>
 					
 					<div>
-						<h3>Details</h3>
-						<textarea id="longdesc" name="longdesc" form="form123" placeholder="Lange Beschreibung" rows="4" cols="70"></textarea>
+						<h3 class="translate">Details</h3>
+						<textarea class="translate" id="longdesc" name="longdesc" form="form123" placeholder="{Details}" rows="4" cols="70"></textarea>
 					</div>
 					
 					<div>
-						<h3>Projektziele</h3>
+						<h3 class="translate">Projektziele</h3>
 						<ol>
-							<li><input type="text" id="goals" name="goals" form="form123" placeholder="Projektziel"></p></li>
-							<li><input type="text" id="goals1" name="goals" form="form123" placeholder="Projektziel"></p></li>
-							<li><input type="text" id="goals2" name="goals" form="form123" placeholder="Projektziel"></p></li>
+							<li><input class="translate" type="text" id="goals" name="goals" form="form123" placeholder="{Ziel}"></p></li>
+							<li><input class="translate" type="text" id="goals1" name="goals" form="form123" placeholder="{Ziel}"></p></li>
+							<li><input class="translate" type="text" id="goals2" name="goals" form="form123" placeholder="{Ziel}"></p></li>
 						</ol>
 					</div>
-					<input width="70px" height="70px" style="color:black;background-color: #FCFCFC" type="submit" value="Projekt erstellen"><br>
+					<input class="translate" width="70px" height="70px" style="color:black;background-color: #FCFCFC" type="submit" value="{Projekt erstellen}"><br>
 					<br>
-					<p>Projektziel hinzuf&uuml;gen</p>
+					<p class="translate" >Projektziel hinzuf&uuml;gen</p>
 					<form action="EMPFAENGER.html" method="post">
 						<ul>
-							<li><input type="text" id="ziel_neu" name="ziel_neu" placeholder="Projektziel"></p></li>
+							<li><input class="translate" type="text" id="ziel_neu" name="ziel_neu" placeholder="{Ziel}"></p></li>
 						</ul>
-					<input style="color:black;background-color: #FCFCFC" type="submit" value="Ziel hinzuf&uuml;gen"><br>
+					<input class="translate" style="color:black;background-color: #FCFCFC" type="submit" value="{Ziel hinzufügen}"><br>
 					</form>
 
 				<footer>
@@ -114,21 +104,19 @@
 			</article>
 		</div>
 	</div>
-	<footer>
-        <nav> 
-			<a href="Impressum.html">Impressum</a> |
-			<a href="Datenschutzerklaerung.html">Datenschutzerkl&auml;rung</a> |
-			<a href="Haftungsausschluss.html">Haftungsausschluss</a> 
+			<footer>
+		<nav>
+			<a href="Impressum.html" class="translate">{Impressum}</a> |
+			<a href="Datenschutzerklaerung.html" class="translate">{Datenschutzerkl&auml;rung}</a> |
+			<a href="Haftungsausschluss.html" class="translate">{Haftungsausschluss}</a>
 
 			<a href="#ph">
-				<span class="backToTop">
-					Zur Spitze
-				</span>
+				<span class="backToTop"><span class="translate">{Zur Spitze}</span></span>
 			</a>
 
-			-- copyright codingforce&copy; 2020 | Kontakt: codingforce@imperium.de
-		</nav>	  
-    </footer>		
+			-- copyright codingforce&copy; 2020 | <span class="translate">{Kontakt}</span>: codingforce@imperium.de
+		</nav>
+	</footer>
   </body>
 </html>
 

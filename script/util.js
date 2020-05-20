@@ -40,7 +40,7 @@ function welcome() {
     fenster1.setTimeout("close()", 5000);
 }
 
-function loginBox(){
+function loginBox(sites){
     localStorage.setItem("currentUserID","0");
     let login = document.getElementById("login");
     let new_login = login.cloneNode(false);
@@ -59,19 +59,19 @@ function loginBox(){
     name.setAttribute("type","text");
     name.setAttribute("id","uname");
     name.setAttribute("from","login_form");
-    name.setAttribute("placeholder","Benutzername");
+    name.setAttribute("placeholder",translate("{Benutzername}"));
 
     pw.setAttribute("type","password");
     pw.setAttribute("id","pw");
-    pw.setAttribute("placeholder","Passwort");
+    pw.setAttribute("placeholder",translate("{Passwort}"));
 
     sub.setAttribute("type","submit");
     sub.setAttribute("form","login_form");
-    sub.setAttribute("value","Einloggen");
+    sub.setAttribute("value",translate("{Einloggen}"));
 
-    a.setAttribute("href","sites/registrieren.html");
-    span.textContent="kein Konto?";
-    a.textContent="Registrieren";
+    a.setAttribute("href",sites+"registrieren.html");
+    span.textContent=translate("{kein Konto?}");
+    a.textContent=translate("{Registrieren}");
     span.appendChild(a);
     form.append(name,pw,sub,span)
     new_login.appendChild(form);
@@ -84,7 +84,7 @@ function logoutBox(){
     let btn = document.createElement("button");
     btn.textContent="Ausloggen";
     btn.setAttribute("class","logout");
-    btn.addEventListener("click", e => loginBox());
+    btn.addEventListener("click", e => loginBox(""));
     new_login.appendChild(btn);
 }
 
@@ -161,11 +161,11 @@ function showAllProjects(){
         footer.appendChild(span);
         footer.appendChild(a);
 
-        h2.textContent=projects[i]._name + " - " + projects[i]._manager;
+        h2.textContent=projects[i]._name + " - "+translate("{Autor}") + " : " +projects[i]._manager;
         p.textContent=projects[i]._brief_desc;
 
         let date = projects[i]._start.toISOString().substring(0, 10).split("-")
-        span.textContent="Projektzeitraum: " + date[2] + "." + date[1] + "." + date[0] ;
+        span.textContent=translate("{Projektzeitraum}")+ ": " + date[2] + "." + date[1] + "." + date[0] ;
 
         a.textContent=" Details"
         a.setAttribute("href","Projekt.html");
@@ -187,12 +187,12 @@ function showProject(id){
     let startdate = project._start.toISOString().substring(0, 10).split("-");
     let enddate = project._end.toISOString().substring(0, 10).split("-");
 
-  /*
-    logo.setAttribute("src",project._picture)*/
-    header.getElementsByTagName("h1")[0].textContent=project._name;
-    header.getElementsByTagName("h2")[0].textContent="Autor:" +project._manager;
 
-    header.getElementsByTagName("p")[0].textContent="Laufzeit: " + startdate[2] + "." + startdate[1] + "." + startdate[0]  + " bis " + enddate[2] + "." + enddate[1] + "." + enddate[0];
+    /*logo.setAttribute("src",project._picture)*/
+    header.getElementsByTagName("h1")[0].textContent=project._name;
+    header.getElementsByTagName("h2")[0].textContent=translate("{Autor}")+" : " +project._manager;
+
+    header.getElementsByTagName("p")[0].textContent=translate("{Laufzeit}")+": " + startdate[2] + "." + startdate[1] + "." + startdate[0]  + " "+translate("{bis}")+ " " + enddate[2] + "." + enddate[1] + "." + enddate[0];
 
     document.getElementById("shortdesc").getElementsByTagName("p")[0].textContent=project._brief_desc;
     document.getElementById("longdesc").getElementsByTagName("p")[0].textContent=project._long_desc;

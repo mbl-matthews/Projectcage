@@ -2,11 +2,13 @@
 <html lang="de">
 	<head>
 		<title>Projectcage</title>
+		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="keywords" content="Projekt, Codingforce, Projectcage, Haftungsaschluss">
 		<meta name="author" content="Block, Hitzemann">
 		<meta name="description" content="Haftungsaschluss der Projectcage">
 		<link rel="stylesheet" href="../style/all.css">
+		<script type="text/javascript" src="../script/util.js"></script>
 		<script type="text/javascript" src="../script/language.js"></script>
 	</head>
 	<body>
@@ -19,22 +21,15 @@
 			</picture>	
 			
 			<section id="login">
-				<form action="javascript:void(0);" id="login_form" onsubmit="login()">
-				<input type="text" id="uname" name="uname" form="login_form" placeholder="Benutzername">
-				<input type="password" id="pw" name="pw" form="login_form" placeholder="Passwort">
-				<input type="submit" form="login_form" value="Einloggen">
-				<span>kein Konto? <a href="registrieren.html">Registrieren</a></span>
-				</form>
-			</section>
+			<script>loginBox("");</script>
+		</section>
 		</header>
 		<nav class="navbar">
 		<a href="../index.html">
 			<img src="../images/home.svg">
 		</a>
-		<div class="translate">{Projekte}</div>
-		<a href="Projekte.html" class="translation"></a>
-		<div class="translate">{Neues Projekt}</div>
-		<a href="Neues_Projekt.html" class="translation"></a>
+		<a href="Projekte.html" class="translate">{Projekte}</a>
+		<a href="Neues_Projekt.html" class="translate">{Neues Projekt}</a>
 	</nav>
 		<div id="main">
 			
@@ -80,21 +75,19 @@
 			
 			</section>
 		</div>	
-	<footer>
-        <nav> 
-			<a href="Impressum.html">Impressum</a> |
-			<a href="Datenschutzerklaerung.html">Datenschutzerkl&auml;rung</a> |
-			<a href="Haftungsausschluss.html">Haftungsausschluss</a> 
+			<footer>
+		<nav>
+			<a href="Impressum.html" class="translate">{Impressum}</a> |
+			<a href="Datenschutzerklaerung.html" class="translate">{Datenschutzerkl&auml;rung}</a> |
+			<a href="Haftungsausschluss.html" class="translate">{Haftungsausschluss}</a>
 
 			<a href="#ph">
-				<span class="backToTop">
-					Zur Spitze
-				</span>
+				<span class="backToTop"><span class="translate">{Zur Spitze}</span></span>
 			</a>
 
-			-- copyright codingforce&copy; 2020 | Kontakt: codingforce@imperium.de
-		</nav>	  
-    </footer>	
+			-- copyright codingforce&copy; 2020 | <span class="translate">{Kontakt}</span>: codingforce@imperium.de
+		</nav>
+	</footer>
   </body>
 </html>
 

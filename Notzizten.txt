@@ -13,3 +13,5 @@ JS und DOM user erstellen formatieren
 
 
 projektseite navigation für kommentare
+
+JS 		<meta charset="utf-8" /> überall rein

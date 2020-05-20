@@ -2,6 +2,7 @@
 <html lang="de">
 	<head>
 		<title>Projectcage</title>
+		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="keywords" content="Projekt, Codingforce, Projectcage, Uebersicht"> <!-- F�r schlechte Suchengines die das noch nutzen -->
 		<meta name="author" content="Block, Hitzemann">
@@ -23,29 +24,22 @@
 		</picture>	
 		
 		<section id="login">
-			<form action="javascript:void(0);" id="login_form" onsubmit="login()">
-			<input type="text" id="uname" name="uname" form="login_form" placeholder="Benutzername">
-			<input type="password" id="pw" name="pw" form="login_form" placeholder="Passwort">
-			<input type="submit" form="login_form" value="Einloggen">
-			<span>kein Konto? <a href="registrieren.html">Registrieren</a></span>
-			</form>
+			<script>loginBox("");</script>
 		</section>
     </header>
 	<nav class="navbar">
 		<a href="../index.html">
 			<img src="../images/home.svg">
 		</a>
-		<div class="translate">{Projekte}</div>
-		<a href="Projekte.html" class="translation"></a>
-		<div class="translate">{Neues Projekt}</div>
-		<a href="Neues_Projekt.html" class="translation"></a>
+		<a href="Projekte.html" class="translate">{Projekte}</a>
+		<a href="Neues_Projekt.html" class="translate">{Neues Projekt}</a>
 	</nav>	
 	<div id="main">
 	
 	<section>
 		<header>
-			<h1>
-				&Uuml;bersicht der Projekte
+			<h1 class="translate">
+				{Übersicht der Projekte}
 			</h1>
 		</header>
 		
@@ -54,17 +48,17 @@
 				<span class="filterbtn">Filter</span>	
 				<div class="show">
 					<ul>
-						<li>nach Anfangsdatum</li>
-						<li>nach Projektlaufzeit</li>
-						<li>nach Projektleiter</li>
+						<li class="translate">{nach Anfangsdatum}</li>
+						<li class="translate">{nach Projektlaufzeit}</li>
+						<li class="translate">{nach Projektleiter}</li>
 					</ul>
 				</div>
 			</div>
 
 			<div>
 				<form action="Projekte.html" method="POST" id="searchform">
-					<input type="text" id="search" form="searchform" placeholder="Suchen...">
-					<input type="submit" id="subsearch" form="searchform" value="Suchen">
+					<input class="translate" type="text" id="search" form="searchform" placeholder="{Suchen...}">
+					<input class="translate" type="submit" id="subsearch" form="searchform" value="{Suchen}">
 				</form>
 			</div>
 		</section>
@@ -76,22 +70,24 @@
 	</section>
 	
 
-	</div>	
+	</div>
 	<footer>
-        <nav> 
-			<a href="Impressum.html">Impressum</a> |
-			<a href="Datenschutzerklaerung.html">Datenschutzerkl&auml;rung</a> |
-			<a href="Haftungsausschluss.html">Haftungsausschluss</a> 
+		<nav>
+			<a href="Impressum.html" class="translate">{Impressum}</a> |
+			<a href="Datenschutzerklaerung.html" class="translate">{Datenschutzerkl&auml;rung}</a> |
+			<a href="Haftungsausschluss.html" class="translate">{Haftungsausschluss}</a>
 
 			<a href="#ph">
 				<span class="backToTop">
-					Zur Spitze
+					<span class="translate">
+						{Zur Spitze}
+					</span>
 				</span>
 			</a>
 
-			-- copyright codingforce&copy; 2020 | Kontakt: codingforce@imperium.de
-		</nav>	  
-    </footer>		
+			-- copyright codingforce&copy; 2020 | <span class="translate">{Kontakt}</span>: codingforce@imperium.de
+		</nav>
+	</footer>
   </body>
 </html>
 

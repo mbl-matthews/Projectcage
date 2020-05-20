@@ -29,7 +29,7 @@
 		</picture>	
 		
 		<section id="login">
-			<script>loginBox();</script>
+			<script>loginBox("sites/");</script>
 		</section>
     </header>
 
@@ -37,25 +37,21 @@
 		<a href="index.html">
 			<img src="images/home.svg">
 		</a>
-		<div class="translate">{Projekte}</div>
-		<a href="sites/Projekte.html" class="translation"></a>
-		<div class="translate">{Neues Projekt}</div>
-		<a href="sites/Neues_Projekt.html" class="translation"></a>
+		<a href="sites/Projekte.html" class="translate">{Projekte}</a>
+		<a href="sites/Neues_Projekt.html" class="translate">{Neues Projekt}</a>
 	</nav>
 
 	<div id="main">
 		<section >
-			<h1>Herzlich Willkommen bei ProjectCage!</h1>
+			<h1 class="translate">{Herzlich Willkommen bei ProjectCage!}</h1>
 			<p id="welcome">
-				<span id="zeile1">Wir sind ProjectCage wir bieten tolle M&ouml;glichkeiten Projekte zu publizieren</span>
-				<span id="zeile2">Sie k&ouml;nnen ein Benutzerkonto erstellen und ihre eigenen Projekte auf der Seite darstellen</span>
+				<span id="zeile1" class="translate">{index_welcomePart1}</span>
+				<span id="zeile2" class="translate">{index_welcomePart2}</span>
 			</p>	
 		</section>
 		
 		<section>
-			<h1>
-				Beschreibung der Seite 
-			</h1>
+			<h1 class="translate">{Beschreibung der Seite}</h1>
 			<p>Hier steht echt ein heftiger Text der halt echt voll die Beschreibung der Seite ist <br>
 				Der Text ist so krass der hat einfach ne zweite Zeile <br>
 				Und soger einfache ne dritte Zeile die l&auml;nger; ist als die zweite Zeile <br>
@@ -75,9 +71,7 @@
 				</video>
 			
 				<div>
-					<h3>
-						Liste der neusten Projekte
-					</h3>
+					<h3 class="translate">{Liste der neusten Projekte}</h3>
 					<ul id="projectList">
 						<script>index_projectList(5)</script>
 					</ul>
@@ -89,17 +83,15 @@
 	
 	<footer>
         <nav> 
-			<a href="sites/Impressum.html">Impressum</a> |
-			<a href="sites/Datenschutzerklaerung.html">Datenschutzerkl&auml;rung</a> |
-			<a href="sites/Haftungsausschluss.html">Haftungsausschluss</a> 
+			<a href="sites/Impressum.html" class="translate">{Impressum}</a> |
+			<a href="sites/Datenschutzerklaerung.html" class="translate">{Datenschutzerkl&auml;rung}</a> |
+			<a href="sites/Haftungsausschluss.html" class="translate">{Haftungsausschluss}</a>
 
 			<a href="#ph">
-				<span class="backToTop">
-					Zur Spitze
-				</span>
+				<span class="backToTop"><span class="translate">{Zur Spitze}</span></span>
 			</a>
 
-			-- copyright codingforce&copy; 2020 | Kontakt: codingforce@imperium.de
+			-- copyright codingforce&copy; 2020 | <span class="translate">{Kontakt}</span>: codingforce@imperium.de
 		</nav>	  
     </footer>	
 
