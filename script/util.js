@@ -40,9 +40,15 @@ function welcome() {
     fenster1.setTimeout("close()", 5000);
 }
 
+function getLoginBox(site){
+    if(localStorage.getItem("currentUserID")==0){
+        loginBox(site);
+    }else{
+        logoutBox();
+    }
+}
 
 function loginBox(sites){
-    localStorage.setItem("currentUserID","0");
     let login = document.getElementById("login");
     let new_login = login.cloneNode(false);
     login.parentNode.replaceChild(new_login, login);
@@ -85,7 +91,7 @@ function logoutBox(){
     let btn = document.createElement("button");
     btn.textContent="Ausloggen";
     btn.setAttribute("class","logout");
-    btn.addEventListener("click", e => loginBox(""));
+    btn.addEventListener("click", e => {localStorage.setItem("currentUserID","0");loginBox("");});
     new_login.appendChild(btn);
 }
 

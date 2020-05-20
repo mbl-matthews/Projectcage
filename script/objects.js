@@ -229,9 +229,10 @@ function generateObject(jsonString) {
         } else if (jobj.cType === 3) {
             jobj = new Comments(jobj._id, jobj._comment, jobj._rating, jobj._user)
         }
+        return jobj;
     }catch(e){
         console.log("unbekanntes Object beim generieren")
     }
 
-    return jobj;
+
 }
