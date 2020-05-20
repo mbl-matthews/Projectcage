@@ -40,6 +40,7 @@ function welcome() {
     fenster1.setTimeout("close()", 5000);
 }
 
+
 function loginBox(sites){
     localStorage.setItem("currentUserID","0");
     let login = document.getElementById("login");
@@ -88,7 +89,6 @@ function logoutBox(){
     new_login.appendChild(btn);
 }
 
-
 function login(){
     let users=allStorage()[2];
     let user = document.querySelector("#uname").value;
@@ -119,7 +119,6 @@ function index_projectList(number){
         li.appendChild(a);
         a.textContent=projects[i]._name;
 
-       // a.setAttribute("href","sites/Projekt.html");
         a.addEventListener('click', (e) => {e.preventDefault(); setProjectID(projects[i]._id) , window.location.href="sites/Projekt.html"});
         list.appendChild(li);
     }
@@ -132,7 +131,6 @@ function setProjectID(id){
 function showAllProjects(){
     let projects=allStorage()[1];
     projects.sort((a,b) => (a._id-b._id)*-1);
-    console.log(projects)
     let section = document.getElementById("allProjects");
     for(let i=0; i<projects.length; i++){
         let article = document.createElement("article");
@@ -153,8 +151,13 @@ function showAllProjects(){
         h2.textContent=projects[i]._name + " - "+translate("{Autor}") + " : " +projects[i]._manager;
         p.textContent=projects[i]._brief_desc;
 
-        let date = projects[i]._start.toISOString().substring(0, 10).split("-")
-        span.textContent=translate("{Projektzeitraum}")+ ": " + date[2] + "." + date[1] + "." + date[0] ;
+        if(projects[i]._start == 'Invalid Date'){
+            span.textContent=translate("{Projektzeitraum}")+ ": " + translate("{unbekannt}") ;
+        }else{
+            let date = projects[i]._start.toISOString().substring(0, 10).split("-")
+            span.textContent=translate("{Projektzeitraum}")+ ": " + date[2] + "." + date[1] + "." + date[0] ;
+        }
+
 
         a.textContent=" Details"
         a.setAttribute("href","Projekt.html");
@@ -173,15 +176,27 @@ function showProject(id){
     let header = document.getElementById("topcontainer");
     let logo = document.getElementById("logo");
     let milestones = document.getElementById("milestones");
-    let startdate = project._start.toISOString().substring(0, 10).split("-");
-    let enddate = project._end.toISOString().substring(0, 10).split("-");
-
 
     /*logo.setAttribute("src",project._picture)*/
     header.getElementsByTagName("h1")[0].textContent=project._name;
     header.getElementsByTagName("h2")[0].textContent=translate("{Autor}")+" : " +project._manager;
 
-    header.getElementsByTagName("p")[0].textContent=translate("{Laufzeit}")+": " + startdate[2] + "." + startdate[1] + "." + startdate[0]  + " "+translate("{bis}")+ " " + enddate[2] + "." + enddate[1] + "." + enddate[0];
+
+    if(project._start == 'Invalid Date'){
+        if(project._end == 'Invalid Date'){
+            header.getElementsByTagName("p")[0].textContent=translate("{Laufzeit}")+": " + translate("{unbekannt}") + " "+translate("{bis}")+ " " +translate("{unbekannt}");
+        }else{
+            let enddate = project._end.toISOString().substring(0, 10).split("-");
+            header.getElementsByTagName("p")[0].textContent=translate("{Laufzeit}")+": " + translate("{unbekannt}") + " "+translate("{bis}")+ " " + enddate[2] + "." + enddate[1] + "." + enddate[0];
+        }
+    }else  if(project._end == 'Invalid Date'){
+        let startdate = project._start.toISOString().substring(0, 10).split("-");
+        header.getElementsByTagName("p")[0].textContent=translate("{Laufzeit}")+": " + startdate[2] + "." + startdate[1] + "." + startdate[0]  + " "+translate("{bis}")+ " " +translate("{unbekannt}");
+    }else{
+        let startdate = project._start.toISOString().substring(0, 10).split("-");
+        let enddate = project._end.toISOString().substring(0, 10).split("-");
+        header.getElementsByTagName("p")[0].textContent=translate("{Laufzeit}")+": " + startdate[2] + "." + startdate[1] + "." + startdate[0]  + " "+translate("{bis}")+ " " + enddate[2] + "." + enddate[1] + "." + enddate[0];
+    }
 
     document.getElementById("shortdesc").getElementsByTagName("p")[0].textContent=project._brief_desc;
     document.getElementById("longdesc").getElementsByTagName("p")[0].textContent=project._long_desc;

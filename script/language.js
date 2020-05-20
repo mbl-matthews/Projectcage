@@ -1,4 +1,3 @@
-
 const dict = {
     en: {
         //navbar & projects
@@ -38,6 +37,7 @@ const dict = {
         'nach Projektleiter':'by Project Manager',
         'Projektzeitraum' : 'Project period',
         'Autor' : 'Author',
+        'unbekannt' : 'unknown',
         //Projekt & erstellen
         'Titel' : 'Title',
         'Laufzeit' : 'Duration',
@@ -92,11 +92,12 @@ const dict = {
         'nach Anfangsdatum':'nach Anfangsdatum',
         'nach Projektlaufzeit':'nach Projektlaufzeit',
         'nach Projektleiter':'nach Projektleiter',
-        'Projektzeitraum' : 'Project period',
+        'Projektzeitraum' : 'Projektzeitraum',
         'Autor' : 'Autor',
+        'unbekannt' : 'unbekannt',
         //Projekt & erstellen
         'Titel' : 'Titel',
-        'Laufzeit:' : 'Laufzeit:',
+        'Laufzeit' : 'Laufzeit',
         'bis' : 'bis',
         'Bewertung' : 'Bewertung',
         'Bewertung abschicken' : 'Bewertung abschicken',
@@ -122,10 +123,8 @@ function getLanguage() {
 }
 
 function translate(word) {
-    console.log("saddd  ",word)
     let lang = getLanguage()
     word = word.replace(/[\{\}]/g, '').trim()
-    console.log("saddd2  ",word)
     return dict[lang][word];
 }
 
@@ -133,58 +132,21 @@ function translate(word) {
 
 function translatePage() {
     let words = document.getElementsByClassName('translate');
-    console.log(words)
     for (let i = 0; i < words.length; i++) {
         let text = ""
         if(words[i].nodeName=="INPUT" || words[i].nodeName=="TEXTAREA"){
             if(words[i].hasAttribute("value")){
-
                 text=words[i].getAttribute("value")
-               // console.log("1"+text)
                 words[i].setAttribute("value",translate(text))
             }else{
-
                 text=words[i].getAttribute("placeholder")
-             //   console.log("2"+text)
                 words[i].setAttribute("placeholder",translate(text))
             }
         }else{
-            console.log("sdfsdf  ",words[i].textContent)
             text = translate(words[i].textContent);
-            console.log(text)
             words[i].textContent = text;
         }
     }
 }
-
-
-/*
-function applyTemplate(tmpl) {
-    //match string with/between {{}}
- //  const regex = /\{\{(.)+\}\}/g
- //   return tmpl.replace(regex, function (word) {
-//        return translate(dict, lang, word.replace(/[\{\}]/g, ''));
- //   });
-    return translate(tmpl.replace(/[\{\}]/g, ''));
-
-}*/
-
-/*
-function translatePage() {
-    let words = document.getElementsByClassName('translate');
-    let translation  = document.getElementsByClassName('translation');
-    console.log(words.length)
-
-  //  console.log(translation)
-    for(let i=0;i<words.length;i++){
-        let test=words[i].textContent;
-      //  console.log(test)
-        let html = applyTemplate(test);
-      //  console.log("aaa:    ",translation[i])
-        translation[i].textContent=html;
-    }
-    console.log(words.length)
-}*/
-
 
 
