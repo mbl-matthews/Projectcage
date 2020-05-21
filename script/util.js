@@ -33,17 +33,15 @@ function sortProject_duration(projectlist) {
     projectlist.sort(compare);
 }
 
-
 function getLanguage() {
     let language = window.navigator.language;
     return language;
 }
 
-
 function welcome() {
-    let fenster1 = window.open("", undefined, "width=500,height=250,left=600,top=400");
-    fenster1.document.write("<h1>Wilkommen auf Projketportal</h1><h2 id='lang'></h2>");
-    let lang = fenster1.document.getElementById("lang");
+    let fenster = window.open("", "Welcome", "width=500,height=250,left=600,top=400");
+    fenster.document.write("<h1>Wilkommen auf Projketportal</h1><h2 id='lang'></h2>");
+    let lang = fenster.document.getElementById("lang");
     lang.innerHTML += "Language: " + getLanguage();
-    fenster1.setTimeout("close()", 5000);
+    fenster.setTimeout("close()", 5000);
 }

@@ -217,15 +217,18 @@ function generateJson(object) {
 }
 
 function generateObject(jsonString) {
-    let jobj = JSON.parse(jsonString);
-
-    if (jobj.cType === 1) {
-        jobj = new Project(jobj._id, jobj._name, new Date(jobj._start), new Date(jobj._end), jobj._picture, jobj._manager, jobj._goals, jobj._comments, jobj._ratings, jobj._brief_desc, jobj._long_desc)
-    } else if (jobj.cType === 2) {
-        jobj = new User(jobj._id, jobj._name, jobj._email, jobj._password, new Date(jobj._gebDate), jobj._picture, jobj._brief_desc, jobj._long_desc, jobj._goals)
-    } else {
-        jobj = new Comments(jobj._id, jobj._comment, jobj._rating, jobj._user)
-    }
-
+    let jobj;
+    try{
+        jobj = JSON.parse(jsonString);
+        if (jobj.cType === 1) {
+            jobj = new Project(jobj._id, jobj._name, new Date(jobj._start), new Date(jobj._end), jobj._picture, jobj._manager, jobj._goals, jobj._comments, jobj._ratings, jobj._brief_desc, jobj._long_desc)
+        } else if (jobj.cType === 2) {
+            jobj = new User(jobj._id, jobj._name, jobj._email, jobj._password, new Date(jobj._gebDate), jobj._picture, jobj._brief_desc, jobj._long_desc, jobj._goals)
+        } else if(jobj.cType === 3) {
+                jobj = new Comments(jobj._id, jobj._comment, jobj._rating, jobj._user)
+        }
+    }catch(e){
+        console.log("unbekanntes Object beim generieren")
+        }
     return jobj;
 }
