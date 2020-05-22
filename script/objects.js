@@ -231,7 +231,7 @@ function generateObject(jsonString) {
         }
         return jobj;
     }catch(e){
-        console.log("unbekanntes Object beim generieren")
+        //unknown object in local storage
     }
 
 
