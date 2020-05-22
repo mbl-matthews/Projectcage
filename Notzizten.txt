@@ -4,15 +4,14 @@ fragen JS UND DOM user erstellen doppelt pw username abfrgagen...?
 
 
 
-dict auch in JS updaten
+//dict auch in JS updaten
 
- comments raiting reihenfolde überprüfen JS
- storeAllObject user id in kommentar
+// comments raiting reihenfolde überprüfen JS
+// storeAllObject user id in kommentar
 
 JS und DOM user erstellen formatieren
 
-projektseite navigation für kommentare
+//projektseite navigation für kommentare
 
-JS 		<meta charset="utf-8" /> überall rein
 
-js mit mülll in storage testen
+//js mit mülll in storage testen
