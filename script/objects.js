@@ -228,7 +228,7 @@ function generateObject(jsonString) {
                 jobj = new Comments(jobj._id, jobj._comment, jobj._rating, jobj._user)
         }
     }catch(e){
-        console.log("unbekanntes Object beim generieren")
+        //unknown object in local storage
         }
     return jobj;
 }
