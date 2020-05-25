@@ -1,9 +1,7 @@
-
-
 function sortProject_manager(projectlist) {
     function compare(a, b) {
-        const ma = a._manager.toUpperCase();
-        const mb = b._manager.toUpperCase();
+        const ma = a.manager.toUpperCase();
+        const mb = b.manager.toUpperCase();
 
         let comparison = 0;
         if (ma > mb) {
@@ -19,7 +17,7 @@ function sortProject_manager(projectlist) {
 
 function sortProject_startDate(projectlist) {
     function compare(a, b) {
-        return a._start - b._start;
+        return a.start - b.start;
     }
 
     projectlist.sort(compare);

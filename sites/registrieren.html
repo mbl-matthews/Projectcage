@@ -8,8 +8,6 @@
 		<meta name="author" content="Block, Hitzemann">
 		<meta name="description" content="Bei der Projectcage Website registrieren.">
 		<link rel="stylesheet" href="../style/all.css">
-		<script type="text/javascript" src="../script/objects.js"></script>
-		<script type="text/javascript" src="../script/storage.js"></script>
 	</head>
   <body>
     <header id="ph">
@@ -39,32 +37,32 @@
 	<div id="main">
 		<section>
 			<br>
-			<form action="javascript:void(0);" id="register_form" onsubmit="storeUser()">
-			
-			<label for="username">Benutzername</label><br>
-			<input type="text" id="username" name="uname"><br>
-			<label for="pw1">Passwort</label><br>
-			<input type="password" id="pw1" name="pw1"><br>
-			<label for="pw2">Passwort wiederholen</label><br>
-			<input type="password" id="pw2" name="pw2"><br>
-			<label for="email">E-Mail</label><br>
-			<input type="text" id="email" name="email"><br>
-			<label for="gebdate">Geburtsdatum</label><br>
-			<input type="date" id="gebdate" name="gebdate"><br>
-			<label for="brief_desc">Kurzbeschreibung</label><br>
-			<textarea id="brief_desc" name="brief_desc"></textarea><br>
-			<label for="long_desc">Langbeschreibung</label><br>
-			<textarea id="long_desc" name="long_desc"></textarea><br>
-			<label for="goals">Ziele</label><br>
-			<input type="text" id="goals" name="goals"><br>
-			<input type="text" id="goals1" name="goals"><br>
-			<input type="text" id="goals2" name="goals"><br>
-			<label for="picture">Profilbild</label><br>
-			<input type="file" id="picture" name="picture" accept="image/*"/><br>
-			<input type="checkbox" id="agb" name="agb" form="register_form">
-			<label for="agb">Ich habe die AGB und Nutzungsbedingungen gelesen und stimme diesen zu!</label><br>
+			<form action="EMPFAENGER.html" id="register_form" method="get" enctype="multipart/form-data">
 
-			<input type="submit" value="Registrieren">
+				<label for="username">Benutzername</label><br>
+				<input type="text" id="username" name="uname"><br>
+				<label for="pw1">Passwort</label><br>
+				<input type="password" id="pw1" name="pw1"><br>
+				<label for="pw2">Passwort wiederholen</label><br>
+				<input type="password" id="pw2" name="pw2"><br>
+				<label for="email">E-Mail</label><br>
+				<input type="text" id="email" name="email"><br>
+				<label for="gebdate">Geburtsdatum</label><br>
+				<input type="date" id="gebdate" name="gebdate"><br>
+				<label for="brief_desc">Kurzbeschreibung</label><br>
+				<textarea id="brief_desc" name="brief_desc"></textarea><br>
+				<label for="long_desc">Langbeschreibung</label><br>
+				<textarea id="long_desc" name="long_desc"></textarea><br>
+				<label for="goals">Ziele</label><br>
+				<input type="text" id="goals" name="goals"><br>
+				<input type="text" id="goals1" name="goals"><br>
+				<input type="text" id="goals2" name="goals"><br>
+				<label for="picture">Profilbild</label><br>
+				<input type="file" id="picture" name="picture" accept="image/*"/><br>
+				<input type="checkbox" id="agb" name="agb" form="register_form">
+				<label for="agb">Ich habe die AGB und Nutzungsbedingungen gelesen und stimme diesen zu!</label><br>
+
+				<input type="submit" value="Registrieren">
 			</form>
 		
 

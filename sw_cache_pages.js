@@ -30,7 +30,6 @@ const cacheAssets = [
   './script/language.js',
   './script/main.js',
   './script/objects.js',
-  './script/storage.js',
   './script/sw_start.js',
   './script/util.js'
 ];

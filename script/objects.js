@@ -70,14 +70,6 @@ class Project extends AbstractBase{
         this._comments = value;
     }
 
-    get ratings() {
-        return this._ratings;
-    }
-
-    set ratings(value) {
-        this._ratings = value;
-    }
-
     get start() {
         return this._start;
     }
@@ -103,13 +95,12 @@ class Project extends AbstractBase{
     }
 
 
-    constructor(id,title,start,end,logo,manager,goals,comments,ratings,brief_desc,long_desc) {
+    constructor(id, title, start, end, logo, manager, goals, comments, brief_desc, long_desc) {
         super(id,title,brief_desc,long_desc,goals,logo);
         this._start = start;
         this._end = end;
         this._manager = manager;
         this._comments = comments;
-        this._ratings = ratings;
     }
 
     calcDuration(){
@@ -221,7 +212,7 @@ function generateObject(jsonString) {
     try{
         jobj = JSON.parse(jsonString);
         if (jobj.cType === 1) {
-            jobj = new Project(jobj._id, jobj._name, new Date(jobj._start), new Date(jobj._end), jobj._picture, jobj._manager, jobj._goals, jobj._comments, jobj._ratings, jobj._brief_desc, jobj._long_desc)
+            jobj = new Project(jobj._id, jobj._name, new Date(jobj._start), new Date(jobj._end), jobj._picture, jobj._manager, jobj._goals, jobj._comments, jobj._brief_desc, jobj._long_desc)
         } else if (jobj.cType === 2) {
             jobj = new User(jobj._id, jobj._name, jobj._email, jobj._password, new Date(jobj._gebDate), jobj._picture, jobj._brief_desc, jobj._long_desc, jobj._goals)
         } else if(jobj.cType === 3) {
