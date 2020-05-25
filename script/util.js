@@ -1,7 +1,7 @@
 function sortProject_manager(projectlist) {
     function compare(a, b) {
-        const ma = a._manager.toUpperCase();
-        const mb = b._manager.toUpperCase();
+        const ma = a.manager.toUpperCase();
+        const mb = b.manager.toUpperCase();
 
         let comparison = 0;
         if (ma > mb) {
@@ -17,7 +17,7 @@ function sortProject_manager(projectlist) {
 
 function sortProject_startDate(projectlist) {
     function compare(a, b) {
-        return a._start - b._start;
+        return a.start - b.start;
     }
 
     projectlist.sort(compare);
@@ -96,14 +96,20 @@ function logoutBox(){
 }
 
 function login(){
+
+
     let users=allStorage()[2];
     let user = document.querySelector("#uname").value;
     let pw = document.querySelector("#pw").value;
 
+    if(user==""){
+        localStorage.setItem("currentUserID","2");
+        logoutBox();
+    }
     for(let x of users){
-        if(x._name==user){
-            if(x._password==pw){
-                localStorage.setItem("currentUserID",x._id);
+        if(x.name==user){
+            if(x.password==pw){
+                localStorage.setItem("currentUserID",x.id);
                 logoutBox();
             }else{
                 //alert("Passwort falsch")
@@ -123,9 +129,9 @@ function index_projectList(number){
         let li=document.createElement("li");
         let a=document.createElement("a");
         li.appendChild(a);
-        a.textContent=projects[i]._name;
+        a.textContent=projects[i].name;
 
-        a.addEventListener('click', (e) => {e.preventDefault(); setProjectID(projects[i]._id) , window.location.href="sites/Projekt.html"});
+        a.addEventListener('click', (e) => {e.preventDefault(); setProjectID(projects[i].id) , window.location.href="sites/Projekt.html"});
         list.appendChild(li);
     }
 }
@@ -136,7 +142,7 @@ function setProjectID(id){
 
 function showAllProjects(){
     let projects=allStorage()[1];
-    projects.sort((a,b) => (a._id-b._id)*-1);
+    projects.sort((a,b) => (a.id-b.id)*-1);
     let section = document.getElementById("allProjects");
     for(let i=0; i<projects.length; i++){
         let article = document.createElement("article");
@@ -154,20 +160,20 @@ function showAllProjects(){
         footer.appendChild(span);
         footer.appendChild(a);
 
-        h2.textContent=projects[i]._name + " - "+translate("{Autor}") + " : " +projects[i]._manager;
-        p.textContent=projects[i]._brief_desc;
+        h2.textContent=projects[i].name + " - "+translate("{Autor}") + " : " +projects[i].manager;
+        p.textContent=projects[i].brief_desc;
 
-        if(projects[i]._start == 'Invalid Date'){
+        if(projects[i].start == 'Invalid Date'){
             span.textContent=translate("{Projektzeitraum}")+ ": " + translate("{unbekannt}") ;
         }else{
-            let date = projects[i]._start.toISOString().substring(0, 10).split("-")
+            let date = projects[i].start.toISOString().substring(0, 10).split("-")
             span.textContent=translate("{Projektzeitraum}")+ ": " + date[2] + "." + date[1] + "." + date[0] ;
         }
 
 
         a.textContent=" Details"
         a.setAttribute("href","Projekt.html");
-        a.setAttribute("onClick","localStorage.setItem('ProjectID',"+projects[i]._id+")");
+        a.setAttribute("onClick","localStorage.setItem('ProjectID',"+projects[i].id+")");
         section.appendChild(article);
     }
 }
@@ -183,24 +189,24 @@ function showProject(id){
     let logo = document.getElementById("logo");
     let milestones = document.getElementById("milestones");
 
-    /*logo.setAttribute("src",project._picture)*/
-    header.getElementsByTagName("h1")[0].textContent=project._name;
-    header.getElementsByTagName("h2")[0].textContent=translate("{Autor}")+" : " +project._manager;
+    /*logo.setAttribute("src",project.picture)*/
+    header.getElementsByTagName("h1")[0].textContent=project.name;
+    header.getElementsByTagName("h2")[0].textContent=translate("{Autor}")+" : " +project.manager;
 
 
-    if(project._start == 'Invalid Date'){
-        if(project._end == 'Invalid Date'){
+    if(project.start == 'Invalid Date'){
+        if(project.end == 'Invalid Date'){
             header.getElementsByTagName("p")[0].textContent=translate("{Laufzeit}")+": " + translate("{unbekannt}") + " "+translate("{bis}")+ " " +translate("{unbekannt}");
         }else{
-            let enddate = project._end.toISOString().substring(0, 10).split("-");
+            let enddate = project.end.toISOString().substring(0, 10).split("-");
             header.getElementsByTagName("p")[0].textContent=translate("{Laufzeit}")+": " + translate("{unbekannt}") + " "+translate("{bis}")+ " " + enddate[2] + "." + enddate[1] + "." + enddate[0];
         }
-    }else  if(project._end == 'Invalid Date'){
-        let startdate = project._start.toISOString().substring(0, 10).split("-");
+    }else  if(project.end == 'Invalid Date'){
+        let startdate = project.start.toISOString().substring(0, 10).split("-");
         header.getElementsByTagName("p")[0].textContent=translate("{Laufzeit}")+": " + startdate[2] + "." + startdate[1] + "." + startdate[0]  + " "+translate("{bis}")+ " " +translate("{unbekannt}");
     }else{
-        let startdate = project._start.toISOString().substring(0, 10).split("-");
-        let enddate = project._end.toISOString().substring(0, 10).split("-");
+        let startdate = project.start.toISOString().substring(0, 10).split("-");
+        let enddate = project.end.toISOString().substring(0, 10).split("-");
         header.getElementsByTagName("p")[0].textContent=translate("{Laufzeit}")+": " + startdate[2] + "." + startdate[1] + "." + startdate[0]  + " "+translate("{bis}")+ " " + enddate[2] + "." + enddate[1] + "." + enddate[0];
     }
 
@@ -211,7 +217,7 @@ function showProject(id){
     let new_milestones = milestones.cloneNode(false);
     milestones.parentNode.replaceChild(new_milestones, milestones);
 
-    for(let x of project._goals){
+    for(let x of project.goals){
         let li = document.createElement("li");
         li.textContent=x;
         new_milestones.appendChild(li);
@@ -220,18 +226,18 @@ function showProject(id){
 
     //Kommentare
     let comms = document.getElementById("comments")
-    if(project._comments == null)return ;
-    for(let id of project._comments){
+    if(project.comments == null)return ;
+    for(let id of project.comments){
 
         let object = generateObject(localStorage.getItem(id));
         let h4 = document.createElement("h4");
         let stars = document.createElement("h5");
         let text = document.createElement("p");
         console.log(object)
-        console.log(generateObject(localStorage.getItem(object._user)))
-        h4.textContent=generateObject(localStorage.getItem(object._user))._name;
-        stars.textContent="Sterne: "+object._rating;
-        text.textContent=object._comment;
+        console.log(generateObject(localStorage.getItem(object.user)))
+        h4.textContent=generateObject(localStorage.getItem(object.user)).name;
+        stars.textContent="Sterne: "+object.rating;
+        text.textContent=object.comment;
 
         comms.appendChild(h4);
         comms.appendChild(stars);

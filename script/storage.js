@@ -53,7 +53,7 @@ function storeProject() {
         goals,
         goals1,
         goals2
-    ], [],undefined, shortdesc, longdesc);
+    ], [], shortdesc, longdesc);
     localStorage.setItem(id, generateJson(project));
     alert("Erfolgrech");
 }
@@ -95,9 +95,9 @@ function storeComment() {
 
     //update project with new comment
     let project = generateObject(localStorage.getItem(localStorage.getItem("ProjectID")));
-    project._comments.push(id);
-    localStorage.setItem(project._id, generateJson(project));
-    console.log( project._comments)
+    project.comments.push(id);
+    localStorage.setItem(project.id, generateJson(project));
+    console.log( project.comments)
     console.log( project)
 }
 
@@ -107,8 +107,8 @@ function get_maxID(){
 
     for (let i=0 ; i<3; i++) {
         for (let x of allStorage()[i]){
-            if (x._id > max) {
-                max = x._id;
+            if (x.id > max) {
+                max = x.id;
             }
         }
     }
@@ -138,7 +138,7 @@ function allStorage() {
 function getLastProjects(number){
     let arr = [],i=0;
     let projects=allStorage()[1];
-    projects.sort((a,b) => (a._id-b._id)*-1);
+    projects.sort((a,b) => (a.id-b.id)*-1);
     while( i<number ){
         arr.push(projects[i]);
         i++;
