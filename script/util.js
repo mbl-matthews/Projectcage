@@ -105,18 +105,20 @@ function login(){
     if(user==""){
         localStorage.setItem("currentUserID","2");
         logoutBox();
+        return;
     }
     for(let x of users){
         if(x.name==user){
             if(x.password==pw){
                 localStorage.setItem("currentUserID",x.id);
                 logoutBox();
+                return;
             }else{
-                //alert("Passwort falsch")
+                alert("Name und Passwort stimmen nicht überein\n testuser -> Felder leer lassen")
             }
         }
     }
-
+    alert("Name und Passwort stimmen nicht überein\n Test-User -> Felder leer lassen")
 }
 
 function index_projectList(number){
