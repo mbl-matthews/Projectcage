@@ -212,8 +212,8 @@ function showProject(id){
         header.getElementsByTagName("p")[0].textContent=translate("{Laufzeit}")+": " + startdate[2] + "." + startdate[1] + "." + startdate[0]  + " "+translate("{bis}")+ " " + enddate[2] + "." + enddate[1] + "." + enddate[0];
     }
 
-    document.getElementById("shortdesc").getElementsByTagName("p")[0].textContent=project._brief_desc;
-    document.getElementById("longdesc").getElementsByTagName("p")[0].textContent=project._long_desc;
+    document.getElementById("shortdesc").getElementsByTagName("p")[0].innerHTML=project.brief_desc;
+    document.getElementById("longdesc").getElementsByTagName("p")[0].innerHTML=project.long_desc;
 
     milestones = milestones.getElementsByTagName("ol")[0];
     let new_milestones = milestones.cloneNode(false);
@@ -245,5 +245,57 @@ function showProject(id){
         comms.appendChild(stars);
         comms.appendChild(text);
     }
+
+
+
+    //Seitenleiste
+    let desc = document.getElementById("descNav");
+    let html = project._long_desc;
+    let temp = document.createElement('span');
+    temp.innerHTML = html;
+
+    let list = [];
+    let superlist = [[]];
+
+    let all = temp.getElementsByTagName("*");
+    for (let i=0; i < all.length; i++) {
+       if(all[i].tagName.charAt(0)=="H"){
+           list.push(all[i]);
+       }
+    }
+    let last=list[0];
+    let group=[];
+    let pointer = desc;
+
+
+
+    console.log(superlist)
+    let sad = desc.cloneNode(true)
+    console.log(111,sad)
+    for (let i=0; i < list.length; i++) {
+        let temp=document.createElement("li");
+        if (list[i].tagName == last.tagName) {
+            temp.textContent=list[i].textContent
+            temp.setAttribute("style","margin:0px")
+            pointer = desc.appendChild(temp)
+        }else if(list[i].tagName > last.tagName){
+            temp.setAttribute("style","margin:10px")
+            temp.textContent=list[i].textContent
+            pointer.appendChild(temp)
+        }else{
+            temp.textContent=list[i].textContent
+            console.log("hallo")
+            pointer=desc
+            pointer.appendChild(temp)
+        }
+        sad = desc.cloneNode(true)
+        console.log(sad)
+
+    }
+    console.log(desc)
+    console.log(desc.children)
 }
+
+
+
 
