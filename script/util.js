@@ -25,7 +25,7 @@ function sortProject_startDate(projectlist) {
 
 function sortProject_duration(projectlist) {
     function compare(a, b) {
-        return -1 * (a.calcDuration() < b.calcDuration());
+        return -1 * (a.calcDuration() - b.calcDuration());
     }
 
     projectlist.sort(compare);
