@@ -25,7 +25,7 @@ function sortProject_startDate(projectlist) {
 
 function sortProject_duration(projectlist) {
     function compare(a, b) {
-        return -1 * (a.calcDuration() < b.calcDuration());
+        return -1 * (a.calcDuration() - b.calcDuration());
     }
 
     projectlist.sort(compare);
@@ -249,51 +249,36 @@ function showProject(id){
 
 
     //Seitenleiste
+    let links = document.getElementById("longdesc").getElementsByTagName("p")[0]
     let desc = document.getElementById("descNav");
-    let html = project._long_desc;
-    let temp = document.createElement('span');
-    temp.innerHTML = html;
 
     let list = [];
-    let superlist = [[]];
 
-    let all = temp.getElementsByTagName("*");
+    let all = links.getElementsByTagName("*");
     for (let i=0; i < all.length; i++) {
-       if(all[i].tagName.charAt(0)=="H"){
-           list.push(all[i]);
-       }
-    }
-    let last=list[0];
-    let group=[];
-    let pointer = desc;
-
-
-
-    console.log(superlist)
-    let sad = desc.cloneNode(true)
-    console.log(111,sad)
-    for (let i=0; i < list.length; i++) {
-        let temp=document.createElement("li");
-        if (list[i].tagName == last.tagName) {
-            temp.textContent=list[i].textContent
-            temp.setAttribute("style","margin:0px")
-            pointer = desc.appendChild(temp)
-        }else if(list[i].tagName > last.tagName){
-            temp.setAttribute("style","margin:10px")
-            temp.textContent=list[i].textContent
-            pointer.appendChild(temp)
-        }else{
-            temp.textContent=list[i].textContent
-            console.log("hallo")
-            pointer=desc
-            pointer.appendChild(temp)
+        if (all[i].tagName.charAt(0) == "H") {
+            list.push(all[i]);
         }
-        sad = desc.cloneNode(true)
-        console.log(sad)
-
     }
-    console.log(desc)
-    console.log(desc.children)
+
+    let margin=5;
+
+    let header_ref="header_"
+    let header_id=0;
+    for (let header of list){
+        console.log(header.tagName)
+        header.setAttribute("id",header_ref+header_id)
+        let a = document.createElement('a');
+        a.textContent=header.textContent
+        a.setAttribute("style","margin-left:"+margin*header.tagName.substr(1)+"px")
+        a.setAttribute("href","#"+header_ref+header_id)
+        desc.appendChild(a)
+        desc.appendChild(document.createElement('br'));
+        header_id++;
+    }
+
+    console.log(list)
+
 }
 
 
