@@ -90,7 +90,7 @@ function storeComment() {
     }
 
 
-    let comm = new Comments(id, comment, rating, user);
+    let comm = new Comments(id, comment, rating, user.id);
     localStorage.setItem(id, generateJson(comm));
 
     //update project with new comment
