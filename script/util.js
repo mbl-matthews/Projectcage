@@ -133,7 +133,7 @@ function index_projectList(number){
         li.appendChild(a);
         a.textContent=projects[i].name;
 
-        a.addEventListener('click', (e) => {e.preventDefault(); setProjectID(projects[i].id) , window.location.href="sites/Projekt.html"});
+        a.addEventListener('click', (e) => {e.preventDefault(); setProjectID(projects[i].id) , window.location.href="sites/Projekt.html?id="+projects[i].id});
         list.appendChild(li);
     }
 }
@@ -174,19 +174,28 @@ function showAllProjects(){
 
 
         a.textContent=" Details"
-        a.setAttribute("href","Projekt.html");
+        a.setAttribute("href","Projekt.html?id="+projects[i].id);
         a.setAttribute("onClick","localStorage.setItem('ProjectID',"+projects[i].id+")");
         section.appendChild(article);
     }
 }
 
-function showProject(id){
+function showProject(id__){
+	let id = null;
+	let urlParams = new URLSearchParams(window.location.search);
+	if(!urlParams.has('id')) {
+		alert("Missing ID");
+		return -1;
+	} else {
+		id = urlParams.get('id');
+	}
+	
     let project = generateObject(localStorage.getItem(id));
     if(!project){
         alert("showProject kaputt");
         return -1;
     }
-
+	
     let header = document.getElementById("topcontainer");
     let logo = document.getElementById("logo");
     let milestones = document.getElementById("milestones");
