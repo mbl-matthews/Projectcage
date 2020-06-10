@@ -73,6 +73,9 @@ public class FileServlet extends HttpServlet {
             outStream.close();
             
             /*
+            PrintWriter out = response.getWriter();
+            //File f = new File(getServletContext().getRealPath("WEB-INF/"));
+            File f = new File(".");
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
@@ -82,7 +85,7 @@ public class FileServlet extends HttpServlet {
             out.println("<h1>Servlet FileServlet at " + request.getContextPath() + "</h1>");
             out.println("<p>");
             out.println("Directory entries of "+f.getAbsolutePath()+": </br>");
-            for(String s : names) {
+            for(String s : f.list()) {
                 out.println(s+"</br>");
             }
             out.println("</p>");
