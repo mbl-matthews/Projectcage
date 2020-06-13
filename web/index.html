@@ -12,7 +12,7 @@
 	<script type="text/javascript" src="script/language.js"></script>
 	<script type="text/javascript" src="script/util.js"></script>
 	<script type="text/javascript" src="script/storage.js"></script>
-	<script type="text/javascript" src="script/sw_start.js"></script>
+	<!--<script type="text/javascript" src="script/sw_start.js"></script>-->
 	<script type="text/javascript" src="script/objects.js"></script>
 	<script type="text/javascript" src="script/main.js"></script>
   <body>	
@@ -22,10 +22,10 @@
 	
     <header id="ph">
 		<picture class="himg">
-			<source media="(min-width: 1920px)" srcset="localhost:8080/Projectcage/images/1920.png">
-			<source media="(min-width: 1280px)" srcset="localhost:8080/Projectcage/images/1280.png">
-			<source media="(min-width: 640px)" srcset="localhost:8080/Projectcage/images/640.png">
-			<img src="localhost:8080/Projectcage/images/320.png" alt="Default">
+			<source media="(min-width: 1920px)" srcset="/Projectcage/images/1920.png">
+			<source media="(min-width: 1280px)" srcset="/Projectcage/images/1280.png">
+			<source media="(min-width: 640px)" srcset="/Projectcage/images/640.png">
+			<img src="/Projectcage/images/320.png" alt="Default">
 		</picture>
 
 		<section id="login">
@@ -36,7 +36,7 @@
 
 	<nav class="navbar">
 		<a href="index.html">
-			<img src="localhost:8080/Projectcage/images/home.svg">
+			<img src="/Projectcage/images/home.svg">
 		</a>
 		<a href="sites/Projekte.html" class="translate">{Projekte}</a>
 		<a href="sites/Neues_Projekt.html" class="translate">{Neues Projekt}</a>
@@ -65,11 +65,10 @@
 		
 		<section>
 			<div id="midcontainer">
-			
 				<video width="700" height="400" controls>
-					<source src="/Projectcage/video/projectcage.mp4" type="video/mp4">
+					<source src="/Projectcage/videos/pc_lil.mp4" type="video/mp4">
 					Video vom Browser nicht unterst&uuml;zt
-				</video>
+				</video> 
 			
 				<div>
 					<h3 class="translate">{Liste der neusten Projekte}</h3>
