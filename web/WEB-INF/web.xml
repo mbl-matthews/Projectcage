@@ -22,7 +22,7 @@
     <filter-mapping>
         <filter-name>ExpiresFilter</filter-name>
         <url-pattern>/images/*</url-pattern>
-        <url-pattern>/video/*</url-pattern>
+        <url-pattern>/videos/*</url-pattern>
         <dispatcher>REQUEST</dispatcher>
     </filter-mapping>
 </web-app>
