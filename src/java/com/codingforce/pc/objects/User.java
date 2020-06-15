@@ -15,4 +15,7 @@ public class User extends Base {
         super(id, name, longDesc, briefDesc, goals, picture, 2);
     }
     
+    public User (){
+        super();
+    } 
 }

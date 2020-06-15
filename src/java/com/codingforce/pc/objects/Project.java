@@ -15,4 +15,8 @@ public class Project extends Base {
         super(id, name, longDesc, briefDesc, goals, picture, 1);
     }
     
+    public Project(){
+        super();
+    }
+    
 }

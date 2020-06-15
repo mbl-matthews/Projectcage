@@ -6,7 +6,7 @@
 package com.codingforce.pc.objects;
 
 import java.util.Date;
-import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.*;
 
 @XmlRootElement
 public class Comment {
@@ -22,10 +22,15 @@ public class Comment {
         this.birth = birth;
     }
 
+    public Comment(){
+        super();
+    }
+    
     public int getId() {
         return id;
     }
 
+    @XmlAttribute
     public void setId(int id) {
         this.id = id;
     }
@@ -34,6 +39,7 @@ public class Comment {
         return email;
     }
 
+    @XmlElement
     public void setEmail(String email) {
         this.email = email;
     }
@@ -42,6 +48,7 @@ public class Comment {
         return password;
     }
 
+    @XmlElement
     public void setPassword(String password) {
         this.password = password;
     }
@@ -50,6 +57,7 @@ public class Comment {
         return birth;
     }
 
+    @XmlElement
     public void setBirth(Date birth) {
         this.birth = birth;
     }

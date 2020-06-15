@@ -6,7 +6,7 @@
 package com.codingforce.pc.objects;
 
 import java.util.List;
-import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.*;
 
 @XmlRootElement
 public abstract class Base {
@@ -27,11 +27,16 @@ public abstract class Base {
         this.picture = picture;
         this.cType = cType;
     }
+    
+    protected Base(){
+        super();
+    }
 
     public int getId() {
         return id;
     }
 
+    @XmlAttribute
     public void setId(int id) {
         this.id = id;
     }
@@ -40,6 +45,7 @@ public abstract class Base {
         return name;
     }
 
+    @XmlElement
     public void setName(String name) {
         this.name = name;
     }
@@ -48,6 +54,7 @@ public abstract class Base {
         return longDesc;
     }
 
+    @XmlElement
     public void setLongDesc(String longDesc) {
         this.longDesc = longDesc;
     }
@@ -56,6 +63,7 @@ public abstract class Base {
         return briefDesc;
     }
 
+    @XmlElement
     public void setBriefDesc(String briefDesc) {
         this.briefDesc = briefDesc;
     }
@@ -64,6 +72,7 @@ public abstract class Base {
         return goals;
     }
 
+    @XmlElement
     public void setGoals(List<String> goals) {
         this.goals = goals;
     }
@@ -72,6 +81,7 @@ public abstract class Base {
         return picture;
     }
 
+    @XmlElement
     public void setPicture(String picture) {
         this.picture = picture;
     }
@@ -80,6 +90,7 @@ public abstract class Base {
         return cType;
     }
 
+    @XmlElement
     public void setcType(int cType) {
         this.cType = cType;
     }
