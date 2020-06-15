@@ -5,6 +5,7 @@
  */
 package com.codingforce.pc.objects;
 
+import java.io.*;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
@@ -16,7 +17,7 @@ public class Main {
     
     public static void main(String[] args){
         
-        User cage = new User(1,"Nicolas","voll geil","super geil",null,null);
+        User cage = null;//new User(1,"Nicolas","voll geil","super geil",null,null);
         
         
 	  try {
@@ -26,7 +27,7 @@ public class Main {
 
 		// output pretty printed
 		jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-
+                Writer writer = new StringWriter();
 		jaxbMarshaller.marshal(cage, System.out);
 
 	      } catch (JAXBException e) {
