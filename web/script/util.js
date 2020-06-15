@@ -41,6 +41,9 @@ function welcome() {
 }
 
 function getLoginBox(site){
+    if(localStorage.getItem("currentUserID")== null){
+        localStorage.setItem("currentUserID",0)
+    }
     if(localStorage.getItem("currentUserID")==0){
         loginBox(site);
     }else{

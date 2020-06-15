@@ -1,0 +1,8 @@
+Aufgabe:
+Senden Sie die Daten erst einmal an die JSON-Datei auf dem Server.
+Wie können Sie sich die Antwort, die sie nach dem Absenden der Daten empfangen, erklären?
+
+Antwort:
+Der Server bekommt einen POST request an die URL der JSON-Datei. Der Server hat keine Logik für so einen request implementiert.
+Alles was der Server also mitkriegt, ist das er eine Ressource für eine Datei liefern soll, was er letztendlich auch tut.
+Deshalb macht er nichts und sendet als Antwort einfach die unveränderte JSON-Datei.

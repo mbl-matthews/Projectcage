@@ -47,7 +47,7 @@ public class ExpiresFilter implements Filter
             rep.setHeader("Content-Type", ct);
             rep.setHeader("ContentType", ct);
             
-            rep.setStatus(401);
+            //rep.setStatus(401);
         }
 
         chain.doFilter(request, response);

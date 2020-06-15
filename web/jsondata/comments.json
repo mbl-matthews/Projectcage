@@ -1,0 +1,5 @@
+[
+    {"_id":8,"_comment":"toller Kommentartext","_rating":5,"_user":1,"cType":3},
+    {"_id":9,"_comment":"Kommentartext","_rating":3,"_user":2,"cType":3},
+    {"_id":10,"_comment":"2Sterne","_rating":2,"_user":3,"cType":3}
+]

@@ -27,7 +27,7 @@ function storeUser() {
             goals2
         ]);
         localStorage.setItem(id, generateJson(user));
-        alert("Erfolgrech");
+        alert("Erfolgreich");
     }
 
 }
@@ -48,14 +48,14 @@ function storeProject() {
     goals1 = document.querySelector("#goals1").value;
     goals2 = document.querySelector("#goals2").value;
 
-
+    console.log("storage ID",id)
     let project = new Project(id, title, slz, elz, picture, autor, [
         goals,
         goals1,
         goals2
     ], [], shortdesc, longdesc);
     localStorage.setItem(id, generateJson(project));
-    alert("Erfolgrech");
+    alert("Erfolgreich");
 }
 
 function storeComment() {
@@ -86,27 +86,57 @@ function storeComment() {
     } else if (r5) {
         rating = 5;
     } else {
-       rating = "nicht bewertet"; console.log("kein rating abgegeben");
+       rating = "nicht bewertet";
+       console.log("kein rating abgegeben");
     }
 
 
     let comm = new Comments(id, comment, rating, user);
     localStorage.setItem(id, generateJson(comm));
+    
+    sendComment(comm);
 
     //update project with new comment
+    
     let project = generateObject(localStorage.getItem(localStorage.getItem("ProjectID")));
     project.comments.push(id);
     localStorage.setItem(project.id, generateJson(project));
     console.log( project.comments)
     console.log( project)
+    
 }
 
+async function sendComment(comment) {
+    let comments = await CommentsJson();
+    comments.push(comment);
+    
+    let response = await fetch("/Projectcage/jsondata/user.json", {
+            method: 'POST',
+            body: JSON.stringify(comments),
+            mode: 'same-origin',
+            credentials: 'same-origin',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+        }
+    );
+    
+    if(!response.ok) {
+        console.log("Error sending comment");
+        return null;
+    }
+    
+    let content = await response.json()
+    console.log("Upload comment response" + content)
+}
 
 function get_maxID(){
     let max=0;
 
     for (let i=0 ; i<3; i++) {
         for (let x of allStorage()[i]){
+            console.log("in maxid:",x)
             if (x.id > max) {
                 max = x.id;
             }
@@ -124,6 +154,7 @@ function allStorage() {
 
     while (i--) {
             temp = generateObject(localStorage.getItem(keys[i]));
+
             if (temp instanceof Project) {
                 p.push(temp);
             } else if (temp instanceof User) {
@@ -133,6 +164,62 @@ function allStorage() {
             }
     }
     return [c, p, u];
+}
+
+function emptyStorage() {
+    let stor_data = allStorage();
+    
+    return stor_data !== "undefined" && stor_data[0].length === 0 &&  stor_data[1].length === 0 && stor_data[2].length === 0;
+}
+
+async function jsonData(file) {
+    let response = await fetch("/Projectcage/jsondata/"+file+".json");
+    if(!response.ok) {
+        return null;
+    }
+    let json = await response.json();
+    
+    let objs = [];
+    
+    for (let obj of json) {
+        objs.push(generateObject(JSON.stringify(obj)));
+    }
+    
+    return objs;
+}
+
+async function UserJson() {
+   let objs = await jsonData("user");
+   return objs;
+}
+
+async function ProjectsJson() {
+   let objs = await jsonData("projects");
+   return objs;
+}
+
+async function CommentsJson() {
+   let objs = await jsonData("comments");
+   return objs;
+}
+
+async function fetchData(store_call) {
+    
+    if(!emptyStorage()) {
+        console.log("Storage not empty");
+        return;
+    }
+    
+    
+    console.log("Fetch data");
+    let objects = [];
+    
+    let user = await UserJson();
+    let projects = await ProjectsJson();
+    let comments = await CommentsJson();
+
+    let objs = [...user, ...projects, ...comments];
+    store_call(objs);
 }
 
 function getLastProjects(number){
