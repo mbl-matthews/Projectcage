@@ -218,12 +218,11 @@ function generateJson(object) {
     return jsonString;
 }
 
-function generateObject(jsonString) {
-    let jobj;
+function generateObject(jobj) {
+    //let jobj;
 
     try {
-        jobj = JSON.parse(jsonString);
-
+        //jobj = JSON.parse(jsonString);
         if (jobj._cType == 1 || jobj.cType == 1) {
             jobj = new Project(jobj._id, jobj._name, new Date(jobj._start), new Date(jobj._end), jobj._picture, jobj._manager, jobj._goals, jobj._comments, jobj._brief_desc, jobj._long_desc)
         } else if (jobj._cType == 2 || jobj.cType == 2) {
@@ -236,7 +235,9 @@ function generateObject(jsonString) {
 
         return jobj;
     }catch(e){
-       console.log("Error at generating object ",jobj);
+        console.log(e)
+       console.log("Error at generating object geparstes jsonObjekt:",jobj);
+       console.log("\njson string:",jsonString);
     }
 
 

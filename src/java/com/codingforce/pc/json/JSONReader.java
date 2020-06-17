@@ -51,7 +51,7 @@ public class JSONReader {
         }
         int cType = jobj.getInteger(new CTypeKey());
         
-        /* TODO: Date richtig machen */
+       
         Object obj = null;
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd");
         if(cType == 2) {
@@ -64,7 +64,7 @@ public class JSONReader {
                     jobj.getString(new PictureKey()),
                     jobj.getString(new EmailKey()),
                     jobj.getString(new PasswordKey()),
-                    sdf.parse(jobj.getString(new BirthKey()))
+                    jobj.getString(new BirthKey())
             );
         } else if(cType == 1) {
             obj = new Project(
@@ -74,8 +74,8 @@ public class JSONReader {
                     jobj.getString(new BriefDescKey()),
                     jobj.getCollection(new GoalsKey()),
                     jobj.getString(new PictureKey()),
-                    sdf.parse(jobj.getString(new StartKey())),
-                    sdf.parse(jobj.getString(new EndKey())),
+                    jobj.getString(new StartKey()),
+                    jobj.getString(new EndKey()),
                     jobj.getString(new ManagerKey()),
                     jobj.getCollection(new CommentsKey())
             );
@@ -91,16 +91,34 @@ public class JSONReader {
         return obj;
     }
     
-    public List<JsonObject> getJsonObjectList(){
+    public JsonArray getJsonSpecialObjectList(){
         JsonObject obj;
-        ArrayList<JsonObject> list = new ArrayList<JsonObject>();
+        JsonArray list = new JsonArray();
         for(int i=0;i<json.size();i++) {
             obj = new JsonObject(); 
             JsonObject jobj = (JsonObject) json.get(i);
-            obj.put("_id", jobj.getInteger(new IdKey()));
-            obj.put("_name", jobj.getInteger(new NameKey()));
-            obj.put("_brief_desc", jobj.getInteger(new BriefDescKey())); 
+            obj.put(new IdKey().getKey(), jobj.getInteger(new IdKey()));
+            obj.put(new NameKey().getKey(), jobj.getString(new NameKey()));
+            obj.put(new BriefDescKey().getKey(), jobj.getString(new BriefDescKey())); 
             list.add(obj);
+        }
+        return list;
+    }
+    
+    public JsonArray getJsonObjectList(){
+        return json;
+    }
+    
+    public List<Special> getSpecialObjectList() {
+        JsonArray ja = this.getJsonSpecialObjectList();
+        List<Special> list = new ArrayList<Special>();
+        for(int i = 0;i<ja.size();i++) {
+            JsonObject jobj = (JsonObject) ja.get(i);
+            list.add(new Special(
+                    jobj.getInteger(new IdKey()),
+                    jobj.getString(new NameKey()),
+                    jobj.getString(new BriefDescKey())
+            ));
         }
         return list;
     }

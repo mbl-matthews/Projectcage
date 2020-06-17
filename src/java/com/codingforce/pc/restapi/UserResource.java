@@ -27,12 +27,10 @@ public class UserResource {
     
     @GET
     @Produces(MediaType.APPLICATION_XML)
-    public String get(@QueryParam("id") Integer id) throws Exception {
+    public String getJSON(@QueryParam("id") Integer id) throws Exception {
         JSONReader jr = new JSONReader("user");
         User usr = (User)jr.getObjectById(id);
-        String json = usr.toJson();
-        //String xml = "<?xml version=\"1.0\"?><msg>"+(usr == null ? "null": json)+"</msg>";
-        
+
         JAXBContext jaxbContext = JAXBContext.newInstance(User.class);
         Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
 
@@ -44,4 +42,21 @@ public class UserResource {
         return writer.toString();
     }
     
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public String getXML(@QueryParam("id") Integer id) throws Exception {
+        JSONReader jr = new JSONReader("user");
+        if(id == null) {
+            return jr.getJsonObjectList().toJson();
+        }
+        User usr = (User)jr.getObjectById(id);
+        
+        return usr.toJson();
+    }
+    
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    public void postProject(String data){
+        System.out.println("Received User: "+data);
+    }
 }

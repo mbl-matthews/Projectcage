@@ -30,8 +30,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class Project extends Base implements Jsonable{
     
-    private Date start;
-    private Date end;
+    private String start;
+    private String end;
     private String manager;
     private List comments;
 
@@ -42,8 +42,8 @@ public class Project extends Base implements Jsonable{
             String briefDesc, 
             List<String> goals, 
             String picture, 
-            Date start, 
-            Date end, 
+            String start, 
+            String end, 
             String manager, 
             List comments
     ) {
@@ -58,21 +58,21 @@ public class Project extends Base implements Jsonable{
         super();
     }
     
-    public Date getStart() {
+    public String getStart() {
         return start;
     }
 
     @XmlElement
-    public void setStart(Date start) {
+    public void setStart(String start) {
         this.start = start;
     }
 
-    public Date getEnd() {
+    public String getEnd() {
         return end;
     }
     
     @XmlElement
-    public void setEnd(Date end) {
+    public void setEnd(String end) {
         this.end = end;
     }
 

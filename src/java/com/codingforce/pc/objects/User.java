@@ -29,7 +29,7 @@ public class User extends Base implements Jsonable {
     
     private String email;
     private String password;
-    private Date gebDate;
+    private String gebDate;
     
     public User(
             int id, 
@@ -40,7 +40,7 @@ public class User extends Base implements Jsonable {
             String picture, 
             String email, 
             String password, 
-            Date gebDate) 
+            String gebDate) 
     {
         super(id, name, longDesc, briefDesc, goals, picture, 2);
         this.email = email;
@@ -70,12 +70,12 @@ public class User extends Base implements Jsonable {
         this.password = password;
     }
 
-    public Date getGebDate() {
+    public String getGebDate() {
         return gebDate;
     }
 
     @XmlElement
-    public void setGebDate(Date gebDate) {
+    public void setGebDate(String gebDate) {
         this.gebDate = gebDate;
     }
     

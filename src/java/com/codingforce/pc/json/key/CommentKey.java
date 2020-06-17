@@ -11,7 +11,7 @@ public class CommentKey implements JsonKey {
 
     @Override
     public String getKey() {
-        return "_comments";
+        return "_comment";
     }
 
     @Override
